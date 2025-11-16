@@ -16,9 +16,9 @@
             <ColumnDefinition Width="8*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Image x:Name="imgLogo" Source="/img/logodnd.png" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Top"></Image>
         <Label Content="Character Editor" Margin="0,20,0,0" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="0" Style="{StaticResource DnDMiniTitleStyle}" Grid.RowSpan="2"/>
@@ -27,15 +27,15 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            
-            
+
+
             <!--Margin="Left,Top,Right,Bottom"-->
             <Button x:Name="btnCancel" FontFamily="Segoe MDL2 Assets" FontSize="20" Grid.Column="0" Margin="10,0,0,0" Padding="10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="btnCancel_Click">&#xF78A;</Button>
             <Button x:Name="btnSave"   FontFamily="Segoe MDL2 Assets" FontSize="20" Grid.Column="1" Margin="0,0,50,0" Padding="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="btnSave_Click">&#xE74E;</Button>
         </Grid>
         <TabControl x:Name="tbcTab" Grid.Column="1" Grid.Row="2" Margin="5,10,50,30" >
-            
-            
+
+
             <!--Pestanya de Classes i especie-->
             <TabItem Header="Class and Specie">
                 <Grid>
@@ -44,7 +44,7 @@
                         <RowDefinition Height="auto"></RowDefinition>
                         <RowDefinition Height="auto"></RowDefinition>
                         <RowDefinition Height="auto"></RowDefinition>
-                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" Style="{StaticResource DnDSubSectionTitle}">Choose a Class</Label>
                     <Label Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" Style="{StaticResource DnDSubSectionTitle}">Choose a Specie</Label>
@@ -55,13 +55,13 @@
                              SelectionChanged="lsbClasses_SelectionChanged">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                
                                 <view:FitxaClasse TheClasse="{Binding}"></view:FitxaClasse>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <WrapPanel Orientation="Horizontal"/><!--????-->
+                                <WrapPanel Orientation="Horizontal"/>
+                                <!--????-->
                             </ItemsPanelTemplate>
                         </ListBox.ItemsPanel>
                     </ListBox>
@@ -73,19 +73,15 @@
                                 <view:FitxaSpecie TheSpecies="{Binding}"></view:FitxaSpecie>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
-                        <ListBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel Orientation="Vertical"/>
-                                <!--????-->
-                            </ItemsPanelTemplate>
-                        </ListBox.ItemsPanel>
+                        
+                        
                     </ListBox>
 
                 </Grid>
-                
+
             </TabItem>
-            
-            
+
+
             <!--Pestanya d'habilitats-->
             <TabItem Header="Abilities">
                 <Grid>
@@ -99,12 +95,12 @@
                     <!--Minititols-->
                     <Label Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" Style="{StaticResource DnDSubSectionTitle}">Ability scores</Label>
                     <Label Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" Style="{StaticResource DnDSubSectionTitle}">Class Skills</Label>
-                    
+
                 </Grid>
 
             </TabItem>
-            
-            
+
+
             <!--Pestanya de personal info-->
             <TabItem Header="Personal Info">
 

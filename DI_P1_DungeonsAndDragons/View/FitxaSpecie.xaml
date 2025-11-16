@@ -21,25 +21,26 @@
                Grid.Row="0"
                Grid.RowSpan="2" Stretch="Uniform"
                Margin="5"
-               Source="{Binding Path=TheSpecie.ImageUrl, 
-                                ElementName=root, 
-                                FallbackValue={x:Null}}"/>
+               MaxHeight="100"
+               Source="{Binding Path=TheSpecies.ImageUrl, 
+                         RelativeSource={RelativeSource AncestorType=local:FitxaSpecie}, 
+                         FallbackValue={x:Null}}"/>
 
         <TextBlock Grid.Column="1" 
                    Grid.Row="0"
                    VerticalAlignment="Bottom"
-                   Text="{Binding Path=TheSpecie.Name, 
-                                  ElementName=root, 
-                                  FallbackValue='Nombre Especie'}"
+                   Text="{Binding Path=TheSpecies.Name, 
+                             RelativeSource={RelativeSource AncestorType=local:FitxaSpecie}, 
+                             FallbackValue='Nombre Especie'}"
                    FontSize="20"
                    FontWeight="Bold"
                    Margin="5"/>
 
         <TextBlock Grid.Column="1" 
                    Grid.Row="1"
-                   Text="{Binding Path=TheSpecie.Description, 
-                                  ElementName=root, 
-                                  FallbackValue='Descripció de la especie...'}"
+                   Text="{Binding Path=TheSpecies.Description, 
+                             RelativeSource={RelativeSource AncestorType=local:FitxaSpecie}, 
+                             FallbackValue='Descripció de la especie...'}"
                    TextWrapping="Wrap" Margin="5"
                    VerticalAlignment="Top"/>
     </Grid>
