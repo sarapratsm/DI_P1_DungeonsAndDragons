@@ -1,0 +1,170 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Colors -->
+    <!-- Colors ajustats -->
+    <SolidColorBrush x:Key="DnDRedOriginal" Color="#A52A2A"/>
+    <!-- Vermell més suau (marró/vermell terrós) -->
+    <SolidColorBrush x:Key="DnDOrange" Color="#D65E3C"/>
+    <!-- Vermell taronja més suau -->
+    <SolidColorBrush x:Key="DnDOcre" Color="#DAA520"/>
+    <!-- Or més subtil (or fosc) -->
+    <SolidColorBrush x:Key="DndGold" Color="#FFB84D"/>
+    <!-- Or més càlid però menys saturat -->
+
+
+
+    <!-- Tipus de lletra semblant a la del logotip -->
+    <FontFamily x:Key="DnDFontFamily">Georgia</FontFamily>
+
+    <!-- 🏰 Estil per a títols principals -->
+    <Style x:Key="DnDTitleStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource DnDFontFamily}"/>
+        <Setter Property="FontSize" Value="32"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="{StaticResource DnDRedOriginal}"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect 
+                    Color="{Binding Color, Source={StaticResource DndGold}}"
+                    ShadowDepth="0"
+                    BlurRadius="0"
+                    Opacity="1"
+                    RenderingBias="Quality"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+        <Setter Property="TextOptions.TextRenderingMode" Value="ClearType"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
+    <!-- 📜 Estil per a subtítols -->
+    <Style x:Key="DnDMiniTitleStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource DnDFontFamily}"/>
+        <Setter Property="FontSize" Value="28"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Foreground" Value="{StaticResource DnDOrange}"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect 
+                    Color="{Binding Color, Source={StaticResource DndGold}}"
+                    ShadowDepth="0"
+                    BlurRadius="1"
+                    Opacity="0.8"
+                    RenderingBias="Quality"/>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+
+    <!-- ✨ Título pequeño y negro (para secciones dentro de pestañas) -->
+    <Style x:Key="DnDSubSectionTitle" TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource DnDFontFamily}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Margin" Value="0,10,0,5"/>
+    </Style>
+
+    <!-- ⚔️ Estil per als botons -->
+    <Style x:Key="DnDButtonStyle" TargetType="Button">
+        <Setter Property="FontFamily" Value="{StaticResource DnDFontFamily}"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="{StaticResource DnDOrange}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource DnDOcre}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Padding" Value="15,8"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect 
+                    Color="{Binding Color, Source={StaticResource DnDOcre}}"
+                    ShadowDepth="0"
+                    BlurRadius="2"
+                    Opacity="0.4"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5"
+                            SnapsToDevicePixels="True">
+                        <ContentPresenter 
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            RecognizesAccessKey="True"
+                            Margin="{TemplateBinding Padding}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <!-- Hover -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#9E5037"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="#E6C47A"/>
+                            <Setter Property="Foreground" Value="#FFFBE5"/>
+                        </Trigger>
+
+                        <!-- Click -->
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#6F2E1E"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="#B8945A"/>
+                        </Trigger>
+
+                        <!-- Desactivat -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Opacity" Value="0.5"/>
+                            <Setter Property="Foreground" Value="#AAAAAA"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="Button" BasedOn="{StaticResource DnDButtonStyle}"/>
+
+    <!-- Estilo para los ítems de ListBox de clases -->
+    <Style TargetType="ListBoxItem">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Effect" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <Border x:Name="border"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="5"
+                        SnapsToDevicePixels="True">
+                        <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="#D65E3C"/>
+                            <Setter TargetName="border" Property="BorderThickness" Value="3"/>
+                            <Setter TargetName="border" Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="#D65E3C" ShadowDepth="0" BlurRadius="10" Opacity="0.7"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+
+</ResourceDictionary>

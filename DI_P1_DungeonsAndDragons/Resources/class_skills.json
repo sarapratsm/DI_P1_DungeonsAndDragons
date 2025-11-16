@@ -1,0 +1,134 @@
+[
+  {
+    "name": "Barbarian",
+    "skills": [
+      "Animal Handling",
+      "Athletics",
+      "Intimidation",
+      "Nature",
+      "Perception",
+      "Survival"
+    ]
+  },
+  {
+    "name": "Bard",
+    "skills": [
+      "Animal Handling",
+      "Athletics",
+      "Intimidation",
+      "Nature",
+      "Perception",
+      "Survival"
+    ]
+  },
+  {
+    "name": "Cleric",
+    "skills": [
+      "Animal Handling",
+      "Athletics",
+      "Intimidation",
+      "Nature",
+      "Perception",
+      "Survival"
+    ]
+  },
+  {
+    "name": "Druid",
+    "skills": [
+      "Animal Handling",
+      "Athletics",
+      "Intimidation",
+      "Nature",
+      "Perception",
+      "Survival"
+    ]
+  },
+  {
+    "name": "Fighter",
+    "skills": [
+      "Animal Handling",
+      "Athletics",
+      "Intimidation",
+      "Nature",
+      "Perception",
+      "Survival"
+    ]
+  },
+  {
+    "name": "Monk",
+    "skills": [
+      "Animal Handling",
+      "Athletics",
+      "Intimidation",
+      "Nature",
+      "Perception",
+      "Survival"
+    ]
+  },
+  {
+    "name": "Paladin",
+    "skills": [
+      "Animal Handling",
+      "Athletics",
+      "Intimidation",
+      "Nature",
+      "Perception",
+      "Survival"
+    ]
+  },
+  {
+    "name": "Ranger",
+    "skills": [
+      "Animal Handling",
+      "Athletics",
+      "Intimidation",
+      "Nature",
+      "Perception",
+      "Survival"
+    ]
+  },
+  {
+    "name": "Rogue",
+    "skills": [
+      "Animal Handling",
+      "Athletics",
+      "Intimidation",
+      "Nature",
+      "Perception",
+      "Survival"
+    ]
+  },
+  {
+    "name": "Sorcerer",
+    "skills": [
+      "Animal Handling",
+      "Athletics",
+      "Intimidation",
+      "Nature",
+      "Perception",
+      "Survival"
+    ]
+  },
+  {
+    "name": "Warlock",
+    "skills": [
+      "Animal Handling",
+      "Athletics",
+      "Intimidation",
+      "Nature",
+      "Perception",
+      "Survival"
+    ]
+  },
+  {
+    "name": "Wizard",
+    "skills": [
+      "Animal Handling",
+      "Athletics",
+      "Intimidation",
+      "Nature",
+      "Perception",
+      "Survival"
+    ]
+  }
+]

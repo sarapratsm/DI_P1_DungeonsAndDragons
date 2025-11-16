@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="DI_P1_DungeonsAndDragons.View.NumericUpDown"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DI_P1_DungeonsAndDragons.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Column="0" FontSize="50" Click="btnMenys_Click" x:Name="btnMenys">-</Button>
+        <Button Grid.Column="2" FontSize="50" Click="btnMes_Click" x:Name="btnMes">+</Button>
+        <TextBox x:Name="txtValor" Grid.Column="1" FontSize="50" TextAlignment="Center" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Text="{Binding RelativeSource={RelativeSource AncestorType=local:NumericUpDown}, Path=Valor}"></TextBox>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="DI_P1_DungeonsAndDragons.View.FitxaClasse"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DI_P1_DungeonsAndDragons.View"
+             mc:Ignorable="d"
+             d:DesignHeight="200" d:DesignWidth="200">
+
+    <Grid>
+        <!-- Imagen -->
+        <Image x:Name="imgClasse"
+               Stretch="Uniform"
+               MaxHeight="200"
+               MaxWidth="200"
+               Source="{Binding Path=TheClasse.ImageUrl,
+                                RelativeSource={RelativeSource AncestorType=local:FitxaClasse}}"/>
+        <Border Background="#CCDDDDDD" CornerRadius="8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8" Padding="6">
+            <!-- Texto encima de la imagen -->
+            <TextBlock x:Name="txbClasse"
+                   Text="{Binding Path=TheClasse.Name, RelativeSource={RelativeSource AncestorType=local:FitxaClasse}}"
+                   
+                   FontWeight="Bold"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="10,5,10,5">
+            </TextBlock>
+            <!--Margin="Left,Top,Right,Bottom"-->
+
+        </Border>
+
+    </Grid>
+</UserControl>

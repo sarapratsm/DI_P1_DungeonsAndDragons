@@ -1,0 +1,113 @@
+﻿<Window x:Class="DI_P1_DungeonsAndDragons.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DI_P1_DungeonsAndDragons" xmlns:view="clr-namespace:DI_P1_DungeonsAndDragons.View"
+        mc:Ignorable="d"
+        Background="#f5ebd3"
+        WindowState="Maximized"
+        Loaded="Window_Loaded"
+        Closed="Window_Closed"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Image x:Name="imgLogo" Source="/img/logodnd.png" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Top"></Image>
+
+        <Label x:Name="lblCaracters"
+             Grid.Row="1" Grid.Column="1"
+             Content="My Characters"
+             HorizontalAlignment="Center"
+             Style="{StaticResource DnDTitleStyle}"/>
+
+        <Label x:Name="lblTeam"
+             Grid.Row="1" Grid.Column="3"
+             Content="My Team"
+             HorizontalAlignment="Center"
+             Style="{StaticResource DnDTitleStyle}"/>
+
+        <!--Botonera-->
+        <Grid Grid.Row="2" Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="btnLeft" Click="btnLeft_Click" Grid.Row="1" Grid.Column="0"  FontFamily="Segoe MDL2 Assets" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center">&#xE72B;</Button>
+            <Button x:Name="btnRight" Click="btnRight_Click" Grid.Row="0" Grid.Column="0" FontFamily="Segoe MDL2 Assets" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center">&#xE72A;</Button>
+        </Grid>
+
+        <!-- ListView que mostrarà una llista de personatges -->
+        <ListView x:Name="lsvPersonatges"  
+          Grid.Row="2" Grid.Column="1"
+            SelectionChanged="lsvPersonatges_SelectionChanged"
+            >
+            <!--ScrollViewer.HorizontalScrollBarVisibility="Disabled"-->
+
+            <!-- Personalització de l'estil dels ítems del ListView -->
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <!-- Cada ítem ocuparà tot l'ample disponible dins del ListView -->
+                    <Setter Property="HorizontalContentAlignment"
+                    Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+
+            <!-- Plantilla que defineix com es mostrarà cada ítem (DataTemplate) -->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+
+                    <!-- Cada element de la llista serà un UserControl CharacterView -->
+                    <!-- El binding TheCharacter="{Binding}" indica que el DataContext del CharacterView... -->
+                    <!-- ...serà l'objecte actual de la llista (un Personatge) -->
+                    <view:CharacterView TheCharacter="{Binding}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <ListBox x:Name="lsbTeam"  Grid.Column="3" Grid.Row="2"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+            SelectionChanged="lsbTeam_SelectionChanged"
+            
+            >
+
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="2" Columns="3"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding ImageUrl}" Width="auto" Height="200" Stretch="UniformToFill"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <!--segona botonera-->
+        <Grid Grid.Column="1" Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnDeleteCharacter" Click="btnDeleteCharacter_Click" Grid.Column="0" FontFamily="Segoe MDL2 Assets" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">&#xE74D;</Button>
+            <Button x:Name="btnNewCharacter" Click="btnNewCharacter_Click" Grid.Column="1" FontFamily="Segoe MDL2 Assets" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">&#xE710;</Button>
+
+        </Grid>
+
+    </Grid>
+</Window>

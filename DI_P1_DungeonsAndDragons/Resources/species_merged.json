@@ -1,0 +1,148 @@
+[
+  {
+    "name": "Aasimar",
+    "description": "Aasimar are mortals who carry a spark of the Upper Planes within their souls.",
+    "traits": "Aasimar Traits\nCelestial Resistance, Darkvision, Healing Hands, Light Bearer, Celestial Revelation",
+    "image_url": "https://www.dndbeyond.com/avatars/thumbnails/43940/408/340/340/638607447895916115.png",
+    "ability_bonuses": [
+      {
+        "ability": "Charisma",
+        "bonus": 2
+      }
+    ]
+  },
+  {
+    "name": "Dragonborn",
+    "description": "The ancestors of dragonborn hatched from the eggs of chromatic and metallic dragons.",
+    "traits": "Dragonborn Traits\nDragon Ancestry, Breath Weapon, Damage Resistance, Darkvision, Draconic Flight",
+    "image_url": "https://www.dndbeyond.com/avatars/thumbnails/43940/435/340/340/638607448651696917.png",
+    "ability_bonuses": [
+      {
+        "ability": "Strength",
+        "bonus": 2
+      },
+      {
+        "ability": "Charisma",
+        "bonus": 1
+      }
+    ]
+  },
+  {
+    "name": "Dwarf",
+    "description": "Dwarves were raised from the earth in the elder days by a deity of the forge.",
+    "traits": "Dwarf Traits\nDarkvision, Dwarven Resilience, Dwarven Toughness, Stonecunning",
+    "image_url": "https://www.dndbeyond.com/avatars/thumbnails/43940/451/340/340/638607448980217343.png",
+    "ability_bonuses": [
+      {
+        "ability": "Constitution",
+        "bonus": 2
+      }
+    ]
+  },
+  {
+    "name": "Elf",
+    "description": "The elves\u2019 curiosity led many of them to explore other planes of existence.",
+    "traits": "Elf Traits\nDarkvision, Elven Lineage, Fey Ancestry, Keen Senses,\u00a0Trance",
+    "image_url": "https://www.dndbeyond.com/avatars/thumbnails/43940/469/340/340/638607449397487719.png",
+    "ability_bonuses": [
+      {
+        "ability": "Dexterity",
+        "bonus": 2
+      }
+    ]
+  },
+  {
+    "name": "Gnome",
+    "description": "Gnomes are magical folk created by gods of invention, illusions, and life underground.",
+    "traits": "Gnome Traits\nDarkvision, Gnomish Cunning, Gnomish Lineage",
+    "image_url": "https://www.dndbeyond.com/avatars/thumbnails/43940/482/340/340/638607449736508079.png",
+    "ability_bonuses": [
+      {
+        "ability": "Intelligence",
+        "bonus": 2
+      }
+    ]
+  },
+  {
+    "name": "Goliath",
+    "description": "Goliaths are distant descendants of giants and seek heights above those reached by their ancestors.",
+    "traits": "Goliath Traits\nGiant Ancestry, Large Form, Powerful Build",
+    "image_url": "https://www.dndbeyond.com/avatars/thumbnails/43940/490/340/340/638607450043098406.png"
+  },
+  {
+    "name": "Halfling",
+    "description": "Halflings possess a brave and adventurous spirit that leads them on journeys of discovery.",
+    "traits": "Halfling Traits\nBrave, Halfling Nimbleness, Luck, Naturally Stealthy",
+    "image_url": "https://www.dndbeyond.com/avatars/thumbnails/43940/520/340/340/638607450551607741.png",
+    "ability_bonuses": [
+      {
+        "ability": "Dexterity",
+        "bonus": 2
+      }
+    ]
+  },
+  {
+    "name": "Human",
+    "description": "Found throughout the multiverse, humans are as varied as they are numerous.",
+    "traits": "Human Traits\nResourceful, Skillful, Versatile",
+    "image_url": "https://www.dndbeyond.com/avatars/thumbnails/43940/545/340/340/638607451217645102.png",
+    "ability_bonuses": [
+      {
+        "ability": "Strength",
+        "bonus": 1
+      },
+      {
+        "ability": "Dexterity",
+        "bonus": 1
+      },
+      {
+        "ability": "Constitution",
+        "bonus": 1
+      },
+      {
+        "ability": "Intelligence",
+        "bonus": 1
+      },
+      {
+        "ability": "Wisdom",
+        "bonus": 1
+      },
+      {
+        "ability": "Charisma",
+        "bonus": 1
+      }
+    ]
+  },
+  {
+    "name": "Orc",
+    "description": "Orcs are equipped with gifts to help them wander great plains, vast caverns, and churning seas.",
+    "traits": "Orc Traits\nAdrenaline Rush, Darkvision, Relentless Endurance",
+    "image_url": "https://www.dndbeyond.com/avatars/thumbnails/43940/567/340/340/638607451596983406.png",
+    "ability_bonuses": [
+      {
+        "ability": "Strength",
+        "bonus": 2
+      },
+      {
+        "ability": "Constitution",
+        "bonus": 1
+      }
+    ]
+  },
+  {
+    "name": "Tiefling",
+    "description": "Tieflings are either born in the Lower Planes or have fiendish ancestors who originated there.",
+    "traits": "Tiefling Traits\nDarkvision, Fiendish Legacy, Otherworldly Presence",
+    "image_url": "https://www.dndbeyond.com/avatars/thumbnails/43940/586/340/340/638607451956352471.png",
+    "ability_bonuses": [
+      {
+        "ability": "Charisma",
+        "bonus": 2
+      },
+      {
+        "ability": "Intelligence",
+        "bonus": 1
+      }
+    ]
+  }
+]

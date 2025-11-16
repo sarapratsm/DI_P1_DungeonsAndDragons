@@ -1,0 +1,115 @@
+﻿<Window x:Class="DI_P1_DungeonsAndDragons.CreacioPersonatge"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DI_P1_DungeonsAndDragons"
+        xmlns:view="clr-namespace:DI_P1_DungeonsAndDragons.View"
+        mc:Ignorable="d"
+        Background="#f5ebd3"
+        WindowState="Maximized"
+        Closed="Window_Closed"
+        Title="CreacioPersonatge" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="8*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image x:Name="imgLogo" Source="/img/logodnd.png" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Top"></Image>
+        <Label Content="Character Editor" Margin="0,20,0,0" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="0" Style="{StaticResource DnDMiniTitleStyle}" Grid.RowSpan="2"/>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            
+            <!--Margin="Left,Top,Right,Bottom"-->
+            <Button x:Name="btnCancel" FontFamily="Segoe MDL2 Assets" FontSize="20" Grid.Column="0" Margin="10,0,0,0" Padding="10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="btnCancel_Click">&#xF78A;</Button>
+            <Button x:Name="btnSave"   FontFamily="Segoe MDL2 Assets" FontSize="20" Grid.Column="1" Margin="0,0,50,0" Padding="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="btnSave_Click">&#xE74E;</Button>
+        </Grid>
+        <TabControl x:Name="tbcTab" Grid.Column="1" Grid.Row="2" Margin="5,10,50,30" >
+            
+            
+            <!--Pestanya de Classes i especie-->
+            <TabItem Header="Class and Specie">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" Style="{StaticResource DnDSubSectionTitle}">Choose a Class</Label>
+                    <Label Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" Style="{StaticResource DnDSubSectionTitle}">Choose a Specie</Label>
+
+                    <!--Vista de les classes-->
+                    <ListBox x:Name="lsbClasses"  Grid.Row="1" 
+                             ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                             SelectionChanged="lsbClasses_SelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                
+                                <view:FitxaClasse TheClasse="{Binding}"></view:FitxaClasse>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"/><!--????-->
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                    </ListBox>
+
+                    <!--Vista de les especies-->
+                    <ListBox x:Name="lsbSpecies"  Grid.Row="4" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lsbSpecies_SelectionChanged" >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <view:FitxaSpecie TheSpecies="{Binding}"></view:FitxaSpecie>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Vertical"/>
+                                <!--????-->
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                    </ListBox>
+
+                </Grid>
+                
+            </TabItem>
+            
+            
+            <!--Pestanya d'habilitats-->
+            <TabItem Header="Abilities">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <!--Minititols-->
+                    <Label Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" Style="{StaticResource DnDSubSectionTitle}">Ability scores</Label>
+                    <Label Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" Style="{StaticResource DnDSubSectionTitle}">Class Skills</Label>
+                    
+                </Grid>
+
+            </TabItem>
+            
+            
+            <!--Pestanya de personal info-->
+            <TabItem Header="Personal Info">
+
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+</Window>
