@@ -213,7 +213,6 @@
     <Style TargetType="TextBox">
         <Setter Property="FontFamily" Value="{StaticResource DnDFontFamily}"/>
         <Setter Property="FontSize" Value="14"/>
-        <Setter Property="Background" Value="#FFFBF0"/>
         <Setter Property="BorderBrush" Value="#D2B48C"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Padding" Value="5,3"/>

@@ -16,7 +16,8 @@ namespace DI_P1_DungeonsAndDragons.Model
         private float altura;
         private float pes;
         private int edat;
-        private Alignment aligment;
+        private Alignment _alignment;
+        int strength, dexterity, constitution, intelligence, wisdom, charisma;
 
         private static ObservableCollection<Personatge>? llistaPersonatges;
 
@@ -28,7 +29,7 @@ namespace DI_P1_DungeonsAndDragons.Model
             this.imageUrl = imageUrl;
         }
 
-        public Personatge(string nom, Classe classe, Species species, string imageUrl, float altura, float pes, int edat, Alignment alignment)
+        public Personatge(string nom, Classe classe, Species species, string imageUrl, float altura, float pes, int edat, Alignment _alignment)
         {
             this.nom = nom;
             this.classe = classe;
@@ -37,7 +38,7 @@ namespace DI_P1_DungeonsAndDragons.Model
             this.altura = altura;
             this.pes = pes;
             this.edat = edat;
-            this.aligment = alignment;
+            this._alignment = _alignment;
 
         }
 
@@ -45,6 +46,13 @@ namespace DI_P1_DungeonsAndDragons.Model
         public Classe Classe { get => classe; set => classe = value; }
         public Species Species { get => species; set => species = value; }
         public string ImageUrl { get => imageUrl; set => imageUrl = value; }
+
+        public float Altura { get=>altura; set => altura = value; }
+        public float Pes { get => pes; set=>pes=value; }
+        public int Edat { get => edat; set => edat = value; }
+        public Alignment Alignment { get => _alignment; set => _alignment = value; }
+        public string Skill1 { get; internal set; }
+        public string Skill2 { get; internal set; }
 
         #region ObservableCollection de personatges
 
@@ -159,6 +167,8 @@ namespace DI_P1_DungeonsAndDragons.Model
                 return llistaPersonatges;
             }
         }
+
+        
         #endregion
     }
 }

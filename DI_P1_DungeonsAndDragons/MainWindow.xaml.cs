@@ -20,6 +20,7 @@ namespace DI_P1_DungeonsAndDragons
     {
         Personatge? personatgeSeleccionat;
         List<Personatge> llistaEquip = new List<Personatge>();
+        ObservableCollection<Personatge>? llistaPersonatges = new ObservableCollection<Personatge>();
         private CreacioPersonatge? creacioPersonatgeWindow = null;
 
         public MainWindow()
@@ -32,7 +33,8 @@ namespace DI_P1_DungeonsAndDragons
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             // Carregar dades inicials
-            lsvPersonatges.ItemsSource = Model.Personatge.GetLlistaPersonatges;
+            llistaPersonatges = Model.Personatge.GetLlistaPersonatges;
+            lsvPersonatges.ItemsSource = llistaPersonatges;
             lsbTeam.ItemsSource = llistaEquip;
             actualitzaBotons();
         }
@@ -101,18 +103,22 @@ namespace DI_P1_DungeonsAndDragons
 
         private void btnNewCharacter_Click(object sender, RoutedEventArgs e)
         {
-            creacioPersonatgeWindow = new CreacioPersonatge();
+            creacioPersonatgeWindow = new CreacioPersonatge(null);
 
             creacioPersonatgeWindow.Closed += CreacioPersonatge_Closed;
 
-            creacioPersonatgeWindow.Show(); // Mostra la finestra de manera no modal
-            // finestra.ShowDialog(); // Mostra la finestra de manera modal
+            //creacioPersonatgeWindow.Show(); // Mostra la finestra de manera no modal
+            creacioPersonatgeWindow.ShowDialog(); // Mostra la finestra de manera modal
+
+            Personatge nou = creacioPersonatgeWindow.nouPersonatge;
+
+            llistaPersonatges.Add(nou);
+
             actualitzaBotons();
         }
 
         private void CreacioPersonatge_Closed(object? sender, EventArgs e)
         {
-            creacioPersonatgeWindow = null;
             btnNewCharacter.IsEnabled = true;
         }
 
@@ -120,6 +126,29 @@ namespace DI_P1_DungeonsAndDragons
         {
             creacioPersonatgeWindow?.Close();
             creacioPersonatgeWindow = null;
+        }
+
+        private void lsvPersonatges_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            //Obrir la finestra passant el PersonatgeSeleccionat
+
+            creacioPersonatgeWindow = new CreacioPersonatge(personatgeSeleccionat);
+
+            creacioPersonatgeWindow.Closed += CreacioPersonatge_Closed;
+
+            creacioPersonatgeWindow.ShowDialog(); // Mostra la finestra de manera modal
+
+            Personatge? editat = creacioPersonatgeWindow.editedPersonatge;
+            if (editat != null)
+            {
+                llistaPersonatges.Remove(item: personatgeSeleccionat);
+                llistaPersonatges.Add(editat);
+
+            }
+
+
+            actualitzaBotons();
+
         }
     }
 }

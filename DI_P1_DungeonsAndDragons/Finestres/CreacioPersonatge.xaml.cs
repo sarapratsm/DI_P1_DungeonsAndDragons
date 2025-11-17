@@ -44,12 +44,29 @@ namespace DI_P1_DungeonsAndDragons
         public event EventHandler WindowClosed;
 
         bool personatgeValid;
+        int mode;
 
-
-        public CreacioPersonatge()
+        public CreacioPersonatge(Personatge? personatgeNavegacio)
         {
             InitializeComponent();
 
+            llistaAlignments = Model.Alignment.GetAlignments();
+            llistaClasses = Model.Classe.GetClasses();
+            llistaSpecies = Model.Species.GetSpecies();
+
+            lsbClasses.ItemsSource = llistaClasses;
+            lsbSpecies.ItemsSource = llistaSpecies;
+            cmbAlignment.ItemsSource = llistaAlignments;
+
+            if (personatgeNavegacio == null)
+            {
+                mode = 0; // 0 = Nou personatge
+            }
+            else
+            {
+                mode = 1; // 1 = Editar
+                editedPersonatge = personatgeNavegacio; // Assignem el que estem editant
+            }
 
             bonusLabels = new Dictionary<string, Label>
             {
@@ -61,23 +78,55 @@ namespace DI_P1_DungeonsAndDragons
                 { "Charisma", lblCharismaBonus }
             };
 
-
+            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            llistaAlignments = Model.Alignment.GetAlignments();
-            llistaClasses = Model.Classe.GetClasses();
-            llistaSpecies = Model.Species.GetSpecies();
+        {        
 
-            lsbClasses.ItemsSource = llistaClasses; lsbClasses.SelectedIndex = 0;
-            lsbSpecies.ItemsSource = llistaSpecies; lsbSpecies.SelectedIndex = 0;
-            cmbAlignment.ItemsSource = llistaAlignments; cmbAlignment.SelectedIndex = 0;
+            if (mode == 1) // Si estem editant
+            {
+                selectedClass = editedPersonatge.Classe;
+                selectedSpecies = editedPersonatge.Species;
+                // Assignar tots els valors
+                Classe lst_classe = llistaClasses.FirstOrDefault(c => c.Name == editedPersonatge.Classe.Name);
+                if (lst_classe != null)
+                {
+                    lsbClasses.SelectedItem = lst_classe;
+                }
 
-            selectedClass = ((List<Classe>)lsbClasses.ItemsSource).FirstOrDefault();
-            selectedSpecies = ((List<Species>)lsbSpecies.ItemsSource).FirstOrDefault();
+                // Per a la Especie
+                Species lst_species = llistaSpecies.FirstOrDefault(s => s.Name == editedPersonatge.Species.Name);
+                if (lst_species != null)
+                {
+                    lsbSpecies.SelectedItem = lst_species;
+                }
+
+                // Per al Alignment
+                Alignment lst_alignment = llistaAlignments.FirstOrDefault(a => a.Name == editedPersonatge.Alignment.Name);
+                if (lst_alignment != null)
+                {
+                    cmbAlignment.SelectedItem = lst_alignment;
+                }
+
+                txtName.Text = editedPersonatge.Nom;
+                txtAge.Text = editedPersonatge.Edat + "";
+                //TODO: carregar la resta de dades (puntuacions, skills, etc.)
+            }
+            else // Si estem creant un de nou
+            {
+                selectedClass = ((List<Classe>)lsbClasses.ItemsSource).FirstOrDefault();
+                selectedSpecies = ((List<Species>)lsbSpecies.ItemsSource).FirstOrDefault();
+                // Inicialitzar per defecte
+                lsbClasses.SelectedIndex = 0;
+                lsbSpecies.SelectedIndex = 0;
+                cmbAlignment.SelectedIndex = 0;
+            }
+
             ActualitzarBonusRacial();
             ActualitzarBonusTotal();
+
+
 
 
         }
@@ -513,12 +562,60 @@ namespace DI_P1_DungeonsAndDragons
         {
             if (PersonatgeEsValid())
             {
-                //Crear nou personatge, afagir-lo a la llista de personatges i tancar la finestra
+                // 1. Assignar les dades al personatge
 
+                Personatge personatgeAGuardar;
+                if (mode == 0) // Nou
+                {
+                    personatgeAGuardar = nouPersonatge;
+                }
+                else // Editat
+                {
+                    personatgeAGuardar = editedPersonatge;
+                }
 
+                // Assignem TOTS els camps (igual que al carregar)
+                personatgeAGuardar.Nom = txtName.Text;
+                personatgeAGuardar.Classe = selectedClass;
+                personatgeAGuardar.Species = selectedSpecies;
+                personatgeAGuardar.Alignment = (Alignment)cmbAlignment.SelectedItem;
+                personatgeAGuardar.Edat = age;
+                personatgeAGuardar.Altura = height;
+                personatgeAGuardar.Pes = weight;
+                personatgeAGuardar.Skill1 = (string)cmbClassSkill1.SelectedItem;
+                personatgeAGuardar.Skill2 = (string)cmbClassSkill2.SelectedItem;
+                //... TODO: Assignar la resta de puntuacions de habilitats.
 
+                // 2. Tancar la finestra
+                Close();
             }
         }
+
+
+
+        public Personatge nouPersonatge
+        {
+            get { return (Personatge)GetValue(nouPersonatgeProperty); }
+            set { SetValue(nouPersonatgeProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for nouPersonatge.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty nouPersonatgeProperty =
+            DependencyProperty.Register("nouPersonatge", typeof(Personatge), typeof(CreacioPersonatge), new PropertyMetadata(null));
+
+
+
+        public Personatge editedPersonatge
+        {
+            get { return (Personatge)GetValue(editedPersonatgeProperty); }
+            set { SetValue(editedPersonatgeProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for editedPersonatge.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty editedPersonatgeProperty =
+            DependencyProperty.Register("editedPersonatge", typeof(Personatge), typeof(CreacioPersonatge), new PropertyMetadata(null));
+
+
 
     }
 }

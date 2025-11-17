@@ -51,7 +51,7 @@
         </Grid>
 
         <!-- ListView que mostrarà una llista de personatges -->
-        <ListView x:Name="lsvPersonatges"  
+        <ListView x:Name="lsvPersonatges" MouseDoubleClick="lsvPersonatges_MouseDoubleClick"  
           Grid.Row="2" Grid.Column="1"
             SelectionChanged="lsvPersonatges_SelectionChanged"
             >
