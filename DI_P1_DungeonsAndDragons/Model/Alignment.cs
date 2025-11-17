@@ -30,8 +30,12 @@ namespace DI_P1_DungeonsAndDragons.Model
         #endregion
 
         #region toSting
-
+        public String toString()
+        {
+            return Name;
+        }
         #endregion
+
     }
 
 

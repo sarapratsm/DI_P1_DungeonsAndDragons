@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,6 +14,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace DI_P1_DungeonsAndDragons
@@ -26,27 +28,27 @@ namespace DI_P1_DungeonsAndDragons
         Classe? selectedClass;
         List<Species> llistaSpecies;
         Species? selectedSpecies;
+        List<Alignment> llistaAlignments;
+        Alignment selectedAlignment;
         Dictionary<string, Label> bonusLabels;
 
         int strength, dexterity, constitution, intelligence, wisdom, charisma, age;
         string characterName;
         float height, weight;
         string skill1, skill2;
-        Alignment selectedAlignment;
+
+        int totalSpent;
 
         // Esto crea una "señal" que otra ventana puede escuchar.
         public event EventHandler WindowClosed;
+
+        bool personatgeValid;
 
 
         public CreacioPersonatge()
         {
             InitializeComponent();
-
-            lsbClasses.ItemsSource = Model.Classe.GetClasses();
-            lsbSpecies.ItemsSource = Model.Species.GetSpecies();
-
-            selectedClass = ((List<Classe>)lsbClasses.ItemsSource).FirstOrDefault();
-            selectedSpecies = ((List<Species>)lsbSpecies.ItemsSource).FirstOrDefault();
+            
 
             bonusLabels = new Dictionary<string, Label>
             {
@@ -63,8 +65,20 @@ namespace DI_P1_DungeonsAndDragons
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            llistaAlignments = Model.Alignment.GetAlignments();
+            llistaClasses = Model.Classe.GetClasses();
+            llistaSpecies = Model.Species.GetSpecies();
+
+            lsbClasses.ItemsSource = llistaClasses; lsbClasses.SelectedIndex = 0;
+            lsbSpecies.ItemsSource = llistaSpecies; lsbSpecies.SelectedIndex = 0;
+            cmbAlignment.ItemsSource = llistaAlignments; cmbAlignment.SelectedIndex = 0;
+
+            selectedClass = ((List<Classe>)lsbClasses.ItemsSource).FirstOrDefault();
+            selectedSpecies = ((List<Species>)lsbSpecies.ItemsSource).FirstOrDefault();
             ActualitzarBonusRacial();
             ActualitzarBonusTotal();
+
+
         }
 
         private void Window_Closed(object sender, EventArgs e)
@@ -72,6 +86,43 @@ namespace DI_P1_DungeonsAndDragons
             WindowClosed?.Invoke(this, EventArgs.Empty);
         }
 
+        private bool PersonatgeEsValid()
+        {
+            if (selectedClass == null || selectedSpecies == null) { return false; }
+            if (totalSpent < 27) { return false; }
+            if (!(validName() && validAge() && validHeight() && validWeight())) { return false; }
+            if (selectedAlignment == null) { return false; }
+            if (seleccioCmbIgual(cmbClassSkill1, cmbClassSkill2)) { return false; }
+            return true;
+        }
+
+
+
+        #region Classe i Especie
+
+        private void lsbClasses_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedClass = (Classe)lsbClasses.SelectedItem;
+
+            if (selectedClass != null)
+            {
+                //ClassSkills:
+                List<string> skillsDeLaClasse = selectedClass.Skills;
+                cmbClassSkill1.ItemsSource = skillsDeLaClasse;
+                cmbClassSkill2.ItemsSource = skillsDeLaClasse;
+                cmbClassSkill1.SelectedIndex = 0;
+                cmbClassSkill2.SelectedIndex = 1;
+            }
+        }
+
+        private void lsbSpecies_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedSpecies = (Species)lsbSpecies.SelectedItem;
+            ActualitzarBonusRacial();
+        }
+        #endregion
+
+        #region Habilitats
         private void CalculaSpentBonus()
         {
             // --- AÑADE ESTA COMPROBACIÓN ---
@@ -84,54 +135,14 @@ namespace DI_P1_DungeonsAndDragons
             }
             // ---------------------------------
 
-            int spent = (nudStrength.Valor - 8) +
+            this.totalSpent = (nudStrength.Valor - 8) +
                         (nudDexterity.Valor - 8) +
                         (nudConstitution.Valor - 8) +
                         (nudIntelligence.Valor - 8) +
                         (nudWisdom.Valor - 8) +
                         (nudCharisma.Valor - 8);
-            lblSpentPoints.Content = spent.ToString() + "/27";
+            lblSpentPoints.Content = totalSpent.ToString() + "/27";
         }
-
-        private void nudStrength_ValorChanged(object sender, EventArgs e)
-        {
-            CalculaBonus(nudStrength, lblStrengthBonus, lblStrengthFinal);
-            CalculaSpentBonus();
-        }
-
-        private void nudDexterity_ValorChanged(object sender, EventArgs e)
-        {
-            CalculaBonus(nudDexterity, lblDexterityBonus, lblDexterityFinal);
-            CalculaSpentBonus();
-        }
-
-        private void nudConstitution_ValorChanged(object sender, EventArgs e)
-        {
-            CalculaBonus(nudConstitution, lblConstitutionBonus, lblConstitutionFinal);
-            CalculaSpentBonus();
-
-        }
-
-        private void nudIntelligence_ValorChanged(object sender, EventArgs e)
-        {
-            CalculaBonus(nudIntelligence, lblIntelligenceBonus, lblIntelligenceFinal);
-            CalculaSpentBonus();
-        }
-
-        private void nudWisdom_ValorChanged(object sender, EventArgs e)
-        {
-            CalculaBonus(nudWisdom, lblWisdomBonus, lblWisdomFinal);
-            CalculaSpentBonus();
-        }
-
-        private void nudCharisma_ValorChanged(object sender, EventArgs e)
-        {
-            CalculaBonus(nudCharisma, lblCharismaBonus, lblCharismaFinal);
-            CalculaSpentBonus();
-        }
-
-       
-
         private void ActualitzarBonusRacial()
         {
             foreach (var label in bonusLabels.Values)
@@ -153,9 +164,6 @@ namespace DI_P1_DungeonsAndDragons
             }
             ActualitzarBonusTotal();
         }
-
-        
-
         private void ActualitzarBonusTotal()
         {
             CalculaBonus(nudCharisma, lblCharismaBonus, lblCharismaFinal);
@@ -200,6 +208,133 @@ namespace DI_P1_DungeonsAndDragons
                 lbl_total.Content = $"{total} ({modifier})";
             }
         }
+        private bool seleccioCmbIgual(ComboBox cmb1, ComboBox cmb2)
+        {
+            if (cmb1.SelectedItem == cmb2.SelectedItem)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        #region Nud Events
+        private void nudStrength_ValorChanged(object sender, EventArgs e)
+        {
+            CalculaBonus(nudStrength, lblStrengthBonus, lblStrengthFinal);
+            CalculaSpentBonus();
+        }
+
+        private void nudDexterity_ValorChanged(object sender, EventArgs e)
+        {
+            CalculaBonus(nudDexterity, lblDexterityBonus, lblDexterityFinal);
+            CalculaSpentBonus();
+        }
+
+        private void nudConstitution_ValorChanged(object sender, EventArgs e)
+        {
+            CalculaBonus(nudConstitution, lblConstitutionBonus, lblConstitutionFinal);
+            CalculaSpentBonus();
+
+        }
+        private void nudIntelligence_ValorChanged(object sender, EventArgs e)
+        {
+            CalculaBonus(nudIntelligence, lblIntelligenceBonus, lblIntelligenceFinal);
+            CalculaSpentBonus();
+        }
+
+        private void nudWisdom_ValorChanged(object sender, EventArgs e)
+        {
+            CalculaBonus(nudWisdom, lblWisdomBonus, lblWisdomFinal);
+            CalculaSpentBonus();
+        }
+
+        private void nudCharisma_ValorChanged(object sender, EventArgs e)
+        {
+            CalculaBonus(nudCharisma, lblCharismaBonus, lblCharismaFinal);
+            CalculaSpentBonus();
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Personal Info
+        private bool validName()
+        {
+            characterName = txtName.Text;
+            if (characterName.Length < 2)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private bool validAge()
+        {
+            try
+            {
+                age = int.Parse(txtAge.Text);
+                if (age < 0) { return false; }
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private bool validHeight()
+        {
+            try
+            {
+                height = float.Parse(txtHeight.Text);
+                if (height < 0) { return false; }
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private bool validWeight()
+        {
+            try
+            {
+                weight = float.Parse(txtWeight.Text);
+                if (weight < 0) { return false; }
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
+
+        private void btnUpload_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        #endregion
+
+
+
+
+
+
+
+        
+
+
+        
+
+
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
@@ -208,32 +343,13 @@ namespace DI_P1_DungeonsAndDragons
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void lsbClasses_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            selectedClass = (Classe)lsbClasses.SelectedItem;
-
-            if (selectedClass != null)
-            {
-                //ClassSkills:
-                List<string> skillsDeLaClasse = selectedClass.Skills;
-                cmbClassSkill1.ItemsSource = skillsDeLaClasse;
-                cmbClassSkill2.ItemsSource = skillsDeLaClasse;
-                cmbClassSkill1.SelectedIndex = 0;
-                cmbClassSkill2.SelectedIndex = 1;
-
-                
+            if (PersonatgeEsValid()) { 
+            //Crear nou personatge, afagir-lo a la llista de personatges i tancar la finestra
 
 
+            
             }
         }
 
-        private void lsbSpecies_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            selectedSpecies = (Species)lsbSpecies.SelectedItem;
-            ActualitzarBonusRacial();
-        }
     }
 }
