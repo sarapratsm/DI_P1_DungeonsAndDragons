@@ -32,7 +32,6 @@
                    Text="{Binding Path=TheSpecies.Name, 
                              RelativeSource={RelativeSource AncestorType=local:FitxaSpecie}, 
                              FallbackValue='Nombre Especie'}"
-                   FontSize="20"
                    FontWeight="Bold"
                    Margin="5"/>
 

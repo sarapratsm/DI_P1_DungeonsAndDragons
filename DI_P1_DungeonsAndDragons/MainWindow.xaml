@@ -46,8 +46,8 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Button x:Name="btnLeft" Click="btnLeft_Click" Grid.Row="1" Grid.Column="0"  FontFamily="Segoe MDL2 Assets" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center">&#xE72B;</Button>
-            <Button x:Name="btnRight" Click="btnRight_Click" Grid.Row="0" Grid.Column="0" FontFamily="Segoe MDL2 Assets" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center">&#xE72A;</Button>
+            <Button x:Name="btnLeft" Click="btnLeft_Click" Grid.Row="1" Grid.Column="0"  Style="{StaticResource IconButtonStyle}">&#xE72B;</Button>
+            <Button x:Name="btnRight" Click="btnRight_Click" Grid.Row="0" Grid.Column="0" Style="{StaticResource IconButtonStyle}">&#xE72A;</Button>
         </Grid>
 
         <!-- ListView que mostrarà una llista de personatges -->
@@ -104,8 +104,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="btnDeleteCharacter" Click="btnDeleteCharacter_Click" Grid.Column="0" FontFamily="Segoe MDL2 Assets" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">&#xE74D;</Button>
-            <Button x:Name="btnNewCharacter" Click="btnNewCharacter_Click" Grid.Column="1" FontFamily="Segoe MDL2 Assets" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">&#xE710;</Button>
+            <Button x:Name="btnDeleteCharacter" Click="btnDeleteCharacter_Click" Grid.Column="0" FontFamily="Segoe MDL2 Assets" Style="{StaticResource IconButtonStyle}">&#xE74D;</Button>
+            <Button x:Name="btnNewCharacter" Click="btnNewCharacter_Click" Grid.Column="1" Style="{StaticResource IconButtonStyle}">&#xE710;</Button>
 
         </Grid>
 

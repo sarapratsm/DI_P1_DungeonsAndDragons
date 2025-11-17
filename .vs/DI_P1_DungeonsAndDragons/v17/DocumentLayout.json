@@ -3,20 +3,36 @@
   "WorkspaceRootPath": "D:\\DAM2\\Interficies\\practiques_interficies\\DI_practica1\\DI_practica1\\DI_P1_DungeonsAndDragons\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|d:\\dam2\\interficies\\practiques_interficies\\di_practica1\\di_practica1\\di_p1_dungeonsanddragons\\di_p1_dungeonsanddragons\\finestres\\creaciopersonatge.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|solutionrelative:di_p1_dungeonsanddragons\\finestres\\creaciopersonatge.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|d:\\dam2\\interficies\\practiques_interficies\\di_practica1\\di_practica1\\di_p1_dungeonsanddragons\\di_p1_dungeonsanddragons\\view\\numericupdown.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|solutionrelative:di_p1_dungeonsanddragons\\view\\numericupdown.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|d:\\dam2\\interficies\\practiques_interficies\\di_practica1\\di_practica1\\di_p1_dungeonsanddragons\\di_p1_dungeonsanddragons\\dndstyles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|solutionrelative:di_p1_dungeonsanddragons\\dndstyles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|d:\\dam2\\interficies\\practiques_interficies\\di_practica1\\di_practica1\\di_p1_dungeonsanddragons\\di_p1_dungeonsanddragons\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|solutionrelative:di_p1_dungeonsanddragons\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|d:\\dam2\\interficies\\practiques_interficies\\di_practica1\\di_practica1\\di_p1_dungeonsanddragons\\di_p1_dungeonsanddragons\\finestres\\creaciopersonatge.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|solutionrelative:di_p1_dungeonsanddragons\\finestres\\creaciopersonatge.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|d:\\dam2\\interficies\\practiques_interficies\\di_practica1\\di_practica1\\di_p1_dungeonsanddragons\\di_p1_dungeonsanddragons\\model\\alignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|solutionrelative:di_p1_dungeonsanddragons\\model\\alignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|d:\\dam2\\interficies\\practiques_interficies\\di_practica1\\di_practica1\\di_p1_dungeonsanddragons\\di_p1_dungeonsanddragons\\view\\fitxaspecie.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|solutionrelative:di_p1_dungeonsanddragons\\view\\fitxaspecie.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|d:\\dam2\\interficies\\practiques_interficies\\di_practica1\\di_practica1\\di_p1_dungeonsanddragons\\di_p1_dungeonsanddragons\\view\\numericupdown.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|solutionrelative:di_p1_dungeonsanddragons\\view\\numericupdown.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|d:\\dam2\\interficies\\practiques_interficies\\di_practica1\\di_practica1\\di_p1_dungeonsanddragons\\di_p1_dungeonsanddragons\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|solutionrelative:di_p1_dungeonsanddragons\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|d:\\dam2\\interficies\\practiques_interficies\\di_practica1\\di_practica1\\di_p1_dungeonsanddragons\\di_p1_dungeonsanddragons\\finestres\\creaciopersonatge.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|solutionrelative:di_p1_dungeonsanddragons\\finestres\\creaciopersonatge.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|d:\\dam2\\interficies\\practiques_interficies\\di_practica1\\di_practica1\\di_p1_dungeonsanddragons\\di_p1_dungeonsanddragons\\model\\alignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|solutionrelative:di_p1_dungeonsanddragons\\model\\alignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,7 +54,55 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FitxaSpecie.xaml",
+              "DocumentMoniker": "D:\\DAM2\\Interficies\\practiques_interficies\\DI_practica1\\DI_practica1\\DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons\\View\\FitxaSpecie.xaml",
+              "RelativeDocumentMoniker": "DI_P1_DungeonsAndDragons\\View\\FitxaSpecie.xaml",
+              "ToolTip": "D:\\DAM2\\Interficies\\practiques_interficies\\DI_practica1\\DI_practica1\\DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons\\View\\FitxaSpecie.xaml",
+              "RelativeToolTip": "DI_P1_DungeonsAndDragons\\View\\FitxaSpecie.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-17T11:49:46.499Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\DAM2\\Interficies\\practiques_interficies\\DI_practica1\\DI_practica1\\DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "DI_P1_DungeonsAndDragons\\MainWindow.xaml",
+              "ToolTip": "D:\\DAM2\\Interficies\\practiques_interficies\\DI_practica1\\DI_practica1\\DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons\\MainWindow.xaml",
+              "RelativeToolTip": "DI_P1_DungeonsAndDragons\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-17T10:57:18.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DnDStyles.xaml",
+              "DocumentMoniker": "D:\\DAM2\\Interficies\\practiques_interficies\\DI_practica1\\DI_practica1\\DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons\\DnDStyles.xaml",
+              "RelativeDocumentMoniker": "DI_P1_DungeonsAndDragons\\DnDStyles.xaml",
+              "ToolTip": "D:\\DAM2\\Interficies\\practiques_interficies\\DI_practica1\\DI_practica1\\DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons\\DnDStyles.xaml",
+              "RelativeToolTip": "DI_P1_DungeonsAndDragons\\DnDStyles.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-17T10:57:02.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\DAM2\\Interficies\\practiques_interficies\\DI_practica1\\DI_practica1\\DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons\\App.xaml",
+              "RelativeDocumentMoniker": "DI_P1_DungeonsAndDragons\\App.xaml",
+              "ToolTip": "D:\\DAM2\\Interficies\\practiques_interficies\\DI_practica1\\DI_practica1\\DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons\\App.xaml",
+              "RelativeToolTip": "DI_P1_DungeonsAndDragons\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-17T10:56:50.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "Alignment.cs",
               "DocumentMoniker": "D:\\DAM2\\Interficies\\practiques_interficies\\DI_practica1\\DI_practica1\\DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons\\Model\\Alignment.cs",
               "RelativeDocumentMoniker": "DI_P1_DungeonsAndDragons\\Model\\Alignment.cs",
@@ -50,20 +114,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "CreacioPersonatge.xaml.cs",
               "DocumentMoniker": "D:\\DAM2\\Interficies\\practiques_interficies\\DI_practica1\\DI_practica1\\DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons\\Finestres\\CreacioPersonatge.xaml.cs",
               "RelativeDocumentMoniker": "DI_P1_DungeonsAndDragons\\Finestres\\CreacioPersonatge.xaml.cs",
               "ToolTip": "D:\\DAM2\\Interficies\\practiques_interficies\\DI_practica1\\DI_practica1\\DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons\\Finestres\\CreacioPersonatge.xaml.cs",
               "RelativeToolTip": "DI_P1_DungeonsAndDragons\\Finestres\\CreacioPersonatge.xaml.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAqwGoAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-17T07:57:45.169Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "CreacioPersonatge.xaml",
               "DocumentMoniker": "D:\\DAM2\\Interficies\\practiques_interficies\\DI_practica1\\DI_practica1\\DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons\\Finestres\\CreacioPersonatge.xaml",
               "RelativeDocumentMoniker": "DI_P1_DungeonsAndDragons\\Finestres\\CreacioPersonatge.xaml",
@@ -75,7 +139,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "NumericUpDown.xaml",
               "DocumentMoniker": "D:\\DAM2\\Interficies\\practiques_interficies\\DI_practica1\\DI_practica1\\DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons\\View\\NumericUpDown.xaml",
               "RelativeDocumentMoniker": "DI_P1_DungeonsAndDragons\\View\\NumericUpDown.xaml",
