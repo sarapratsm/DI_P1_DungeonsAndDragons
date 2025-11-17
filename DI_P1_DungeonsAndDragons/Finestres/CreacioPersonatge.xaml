@@ -68,7 +68,9 @@
                     </ListBox>
 
                     <!--Vista de les especies-->
-                    <ListBox x:Name="lsbSpecies"  Grid.Row="4" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lsbSpecies_SelectionChanged" >
+                    <ListBox x:Name="lsbSpecies"  Grid.Row="4" ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                             ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                             SelectionChanged="lsbSpecies_SelectionChanged" >
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <view:FitxaSpecie TheSpecies="{Binding}"></view:FitxaSpecie>
@@ -172,7 +174,8 @@
 
             <TabItem Header="Abilities">
                 <DockPanel>
-                    <Label DockPanel.Dock="Top" Content="Ability scores" Style="{StaticResource DnDSubSectionTitle}" Margin="10"/>
+                    <Label DockPanel.Dock="Top" Content="Ability scores" Style="{StaticResource DnDSubSectionTitle}" 
+                           Margin="10"/>
 
                     <Label DockPanel.Dock="Top" Content="Assign the 6 ability scores..." Margin="10,0"/>
 
@@ -186,10 +189,11 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Grid.Row="0" Content="Class Skills" Style="{StaticResource DnDSubSectionTitle}" Margin="10"/>
-                        <Label Grid.Column="0" Grid.Row="1" Content="Choose 2:" HorizontalAlignment="Center"/>
-                        <ComboBox x:Name="cmbClassSkill1" Grid.Column="1" Grid.Row="1"/>
-                        <ComboBox x:Name="cmbClassSkill2" Grid.Column="2" Grid.Row="1"/>
+                        <Label Grid.Column="0" Grid.Row="0" Content="Class Skills" Style="{StaticResource DnDSubSectionTitle}" 
+                               Margin="10"/>
+                        <TextBox Name="lblSkills" Grid.Column="0" Grid.Row="1" Text="Choose 2:" HorizontalAlignment="Center" Focusable="true" IsReadOnly="True"/>
+                        <ComboBox x:Name="cmbClassSkill1" Grid.Column="1" Grid.Row="1" SelectionChanged="cmbClassSkill1_SelectionChanged"/>
+                        <ComboBox x:Name="cmbClassSkill2" Grid.Column="2" Grid.Row="1" SelectionChanged="cmbClassSkill1_SelectionChanged"/>
                     </Grid>
 
                     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="0,10">
@@ -245,7 +249,7 @@
                             <Label Grid.Row="6" Grid.Column="2" x:Name="lblCharismaBonus" Content="+0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                             <Label Grid.Row="6" Grid.Column="3" x:Name="lblCharismaFinal" Content="8 (-1)" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0"/>
 
-                            <Label x:Name="lblSpentPoints" Grid.Row="7" Grid.Column="1" Content="Spent score: 0/27" HorizontalAlignment="Center"  FontWeight="Bold"/>
+                            <TextBox x:Name="lblSpentPoints"  Grid.Row="7" Grid.Column="1" Text="Spent score: 0/27" Focusable="true" IsReadOnly="True" HorizontalAlignment="Center"  FontWeight="Bold"/>
                         </Grid>
                     </ScrollViewer>
                 </DockPanel>
@@ -338,10 +342,10 @@
                                 <Label Grid.Row="2" Grid.Column="0" Content="Weight (*):" VerticalAlignment="Center"    Margin="10" HorizontalAlignment="Right"/>
                                 <Label Grid.Row="3" Grid.Column="0" Content="Age (*):" VerticalAlignment="Center"       Margin="10" HorizontalAlignment="Right"/>
 
-                                <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtName" Margin="5" VerticalContentAlignment="Center" Padding="5,0"/>
-                                <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtHeight" Margin="5" VerticalContentAlignment="Center" Padding="5,0"/>
-                                <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtWeight" Margin="5" VerticalContentAlignment="Center" Padding="5,0"/>
-                                <TextBox Grid.Row="3" Grid.Column="1" x:Name="txtAge" Margin="5" VerticalContentAlignment="Center" Padding="5,0"/>
+                                <TextBox Grid.Row="0" Grid.Column="1" TextChanged="txtName_TextChanged" x:Name="txtName" Margin="5" VerticalContentAlignment="Center" Padding="5,0"/>
+                                <TextBox Grid.Row="1" Grid.Column="1" TextChanged="txtHeight_TextChanged" x:Name="txtHeight" Margin="5" VerticalContentAlignment="Center" Padding="5,0"/>
+                                <TextBox Grid.Row="2" Grid.Column="1" TextChanged="txtWeight_TextChanged" x:Name="txtWeight" Margin="5" VerticalContentAlignment="Center" Padding="5,0"/>
+                                <TextBox Grid.Row="3" Grid.Column="1" TextChanged="txtAge_TextChanged" x:Name="txtAge" Margin="5" VerticalContentAlignment="Center" Padding="5,0"/>
 
                                 <Label Grid.Row="4" Grid.Column="0" Content="Alignment:" VerticalAlignment="Center" Margin="5" HorizontalAlignment="Right"/>
                                 <ComboBox Grid.Row="4" Grid.Column="1" x:Name="cmbAlignment" DisplayMemberPath="Name" Margin="5" VerticalContentAlignment="Center" Padding="5,0"/>

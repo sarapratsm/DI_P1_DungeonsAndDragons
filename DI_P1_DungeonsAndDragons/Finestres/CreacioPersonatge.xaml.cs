@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -48,7 +49,7 @@ namespace DI_P1_DungeonsAndDragons
         public CreacioPersonatge()
         {
             InitializeComponent();
-            
+
 
             bonusLabels = new Dictionary<string, Label>
             {
@@ -88,12 +89,63 @@ namespace DI_P1_DungeonsAndDragons
 
         private bool PersonatgeEsValid()
         {
-            if (selectedClass == null || selectedSpecies == null) { return false; }
-            if (totalSpent < 27) { return false; }
-            if (!(validName() && validAge() && validHeight() && validWeight())) { return false; }
-            if (selectedAlignment == null) { return false; }
-            if (seleccioCmbIgual(cmbClassSkill1, cmbClassSkill2)) { return false; }
-            return true;
+            bool esValid = true;
+            if (selectedClass == null)
+            {
+                tbcTab.SelectedIndex = 0; // Cambia a la Pestaña 0
+                ShowValidationError(lsbClasses, "Selecciona una classe");
+                esValid = false;
+            }
+            if (selectedSpecies == null)
+            {
+                tbcTab.SelectedIndex = 0; // Cambia a la Pestaña 0
+                ShowValidationError(lsbSpecies, "Selecciona una especie");
+                return false;
+            }
+            if (!ValidPoints())
+            {
+                tbcTab.SelectedIndex = 1;
+                //ShowValidationError(lblSpentPoints, "Has de gastar exactament 27 punts!");
+                esValid = false;
+            }
+            if (seleccioCmbIgual(cmbClassSkill1, cmbClassSkill2))
+            {
+                tbcTab.SelectedIndex = 1;
+                //ShowValidationError(lblSkills, "Les habilitats de classe han de ser diferents");
+                return false;
+            }
+            if (!validName())
+            {
+                tbcTab.SelectedIndex = 2;
+                ShowValidationError(txtName, "El nom ha de tenir almenys 2 caràcters");
+                esValid = false;
+            }
+            if (!validAge())
+            {
+                tbcTab.SelectedIndex = 2;
+                ShowValidationError(txtAge, "L'edat ha de ser un nombre vàlid i positiu");
+                esValid = false;
+            }
+            if (!validHeight())
+            {
+                tbcTab.SelectedIndex = 2;
+                ShowValidationError(txtHeight, "L'alçada ha de ser un nombre vàlid i positiu");
+                esValid = false;
+            }
+            if (!validWeight())
+            {
+                tbcTab.SelectedIndex = 2;
+                ShowValidationError(txtWeight, "El pes ha de ser un nombre vàlid i positiu");
+                esValid = false;
+            }
+
+            if (cmbAlignment.SelectedItem == null)
+            {
+                tbcTab.SelectedIndex = 2;
+                ShowValidationError(cmbAlignment, "Selecciona una alineació");
+                esValid = false;
+            }
+            return esValid;
         }
 
 
@@ -131,9 +183,8 @@ namespace DI_P1_DungeonsAndDragons
                 nudIntelligence == null || nudWisdom == null || nudCharisma == null ||
                 lblSpentPoints == null)
             {
-                return; // Salimos de la función
+                return;
             }
-            // ---------------------------------
 
             this.totalSpent = (nudStrength.Valor - 8) +
                         (nudDexterity.Valor - 8) +
@@ -141,7 +192,7 @@ namespace DI_P1_DungeonsAndDragons
                         (nudIntelligence.Valor - 8) +
                         (nudWisdom.Valor - 8) +
                         (nudCharisma.Valor - 8);
-            lblSpentPoints.Content = totalSpent.ToString() + "/27";
+            lblSpentPoints.Text = totalSpent.ToString() + "/27";
         }
         private void ActualitzarBonusRacial()
         {
@@ -258,6 +309,64 @@ namespace DI_P1_DungeonsAndDragons
             CalculaSpentBonus();
         }
 
+        private void cmbClassSkill1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (seleccioCmbIgual(cmbClassSkill1, cmbClassSkill2))
+            {
+                ShowValidationError(lblSkills, "Les habilitats de classe han de ser diferents");
+            }
+        }
+
+        private void txtName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (validName())
+            {
+                // El nombre es válido, puedes realizar acciones adicionales aquí si es necesario.
+                characterName = txtName.Text;
+            }
+            else
+            {
+                // El nombre no es válido, puedes mostrar un mensaje de error o realizar otras acciones.
+                //ShowValidationError(txtName, "El nom ha de tenir almenys 2 caràcters");
+            }
+        }
+
+        private void txtHeight_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (validHeight())
+            {
+                height = float.Parse(txtHeight.Text);
+            }
+            else
+            {
+                ShowValidationError(txtHeight, "L'alçada ha de ser un número positiu");
+            }
+        }
+
+        private void txtWeight_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (validWeight())
+            {
+                weight = float.Parse(txtWeight.Text);
+            }
+            else
+            {
+                ShowValidationError(txtWeight, "El pes ha de ser un número positiu");
+            }
+        }
+
+        private void txtAge_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (validAge())
+            {
+                age = int.Parse(txtAge.Text);
+            }
+            else
+            {
+                ShowValidationError(txtAge, "L'edat ha de ser un número positiu");
+            }
+        }
+
         #endregion
 
         #endregion
@@ -275,10 +384,14 @@ namespace DI_P1_DungeonsAndDragons
 
         private bool validAge()
         {
+            if(txtAge.Text.Trim() == "")
+            {
+                return false;
+            }
             try
             {
                 age = int.Parse(txtAge.Text);
-                if (age < 0) { return false; }
+                if (age <= 0) { return false; }
             }
             catch
             {
@@ -289,10 +402,14 @@ namespace DI_P1_DungeonsAndDragons
 
         private bool validHeight()
         {
+            if(txtHeight.Text.Trim() == "")
+            {
+                return false;
+            }
             try
             {
                 height = float.Parse(txtHeight.Text);
-                if (height < 0) { return false; }
+                if (height <= 0) { return false; }
             }
             catch
             {
@@ -303,10 +420,14 @@ namespace DI_P1_DungeonsAndDragons
 
         private bool validWeight()
         {
+            if(txtWeight.Text.Trim() == "")
+            {
+                return false;
+            }
             try
             {
                 weight = float.Parse(txtWeight.Text);
-                if (weight < 0) { return false; }
+                if (weight <= 0) { return false; }
             }
             catch
             {
@@ -315,6 +436,20 @@ namespace DI_P1_DungeonsAndDragons
             return true;
         }
 
+        private bool ValidPoints()
+        {
+            if (totalSpent > 27)
+            {
+                ShowValidationError(lblSpentPoints, "El màxim de punts és 27!");
+                return false;
+            }
+            else if (totalSpent < 27)
+            {
+                ShowValidationError(lblSpentPoints, "Has de gastar els 27 punts!");
+                return false;
+            }
+            return true;
+        }
 
         private void btnUpload_Click(object sender, RoutedEventArgs e)
         {
@@ -323,16 +458,49 @@ namespace DI_P1_DungeonsAndDragons
 
         #endregion
 
+        /// <summary>
+        /// Muestra un ToolTip (burbuja) de error rojo junto a un control específico.
+        /// </summary>
+        /// <param name="invalidControl">El control que tiene el error (ej: txtName, cmbAlignment).</param>
+        /// <param name="errorMessage">El mensaje que se mostrará en la burbuja.</param>
+        private void ShowValidationError(Control invalidControl, string errorMessage)
+        {
+            // 1. Crea el ToolTip (la burbuja)
+            ToolTip errorToolTip = new ToolTip
+            {
+                Content = errorMessage,
+                Background = Brushes.Red,
+                Foreground = Brushes.White,
+                Placement = PlacementMode.Right,
+                PlacementTarget = invalidControl,
+                IsOpen = true
+            };
+
+            // 2. Asigna el ToolTip al control
+            invalidControl.ToolTip = errorToolTip;
+
+            // 3. Cuando el control pierda el foco (el usuario haga clic en otro sitio),
+            //    cierra la burbuja para que no se quede ahí para siempre.
+            invalidControl.LostFocus += (s, e) => { errorToolTip.IsOpen = false; };
+
+            // 4. (Opcional) Si el control es un TextBox, cierra la burbuja en cuanto el usuario empiece a escribir.
+            if (invalidControl is TextBox textBox)
+            {
+                textBox.TextChanged += (s, e) => { errorToolTip.IsOpen = false; };
+            }
+
+            // 5. Pon el foco en el control que tiene el error
+            invalidControl.Focus();
+        }
 
 
 
 
 
 
-        
 
 
-        
+
 
 
 
@@ -343,11 +511,12 @@ namespace DI_P1_DungeonsAndDragons
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (PersonatgeEsValid()) { 
-            //Crear nou personatge, afagir-lo a la llista de personatges i tancar la finestra
+            if (PersonatgeEsValid())
+            {
+                //Crear nou personatge, afagir-lo a la llista de personatges i tancar la finestra
 
 
-            
+
             }
         }
 
