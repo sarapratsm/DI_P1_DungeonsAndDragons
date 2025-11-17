@@ -9,6 +9,7 @@
         Background="#f5ebd3"
         WindowState="Maximized"
         Closed="Window_Closed"
+        Loaded="Window_Loaded"
         Title="CreacioPersonatge" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -73,8 +74,8 @@
                                 <view:FitxaSpecie TheSpecies="{Binding}"></view:FitxaSpecie>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
-                        
-                        
+
+
                     </ListBox>
 
                 </Grid>
@@ -84,20 +85,91 @@
 
             <!--Pestanya d'habilitats-->
             <TabItem Header="Abilities">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"></RowDefinition>
-                        <RowDefinition Height="auto"></RowDefinition>
-                        <RowDefinition Height="*"></RowDefinition>
-                        <RowDefinition Height="auto"></RowDefinition>
-                        <RowDefinition Height="auto"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <!--Minititols-->
-                    <Label Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" Style="{StaticResource DnDSubSectionTitle}">Ability scores</Label>
-                    <Label Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" Style="{StaticResource DnDSubSectionTitle}">Class Skills</Label>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Grid x:Name="grdAbilities">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
 
-                </Grid>
+                        <Label Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" Style="{StaticResource DnDSubSectionTitle}">Ability scores</Label>
+                        <Label Grid.Row="1" Content="Assign the 6 ability scores. They must add 27 (base score is 8, max 15):" Margin="10,0"/>
 
+                        <!--Grid Punts-->
+                        <Grid Grid.Row="2" Margin="20,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0" Grid.Column="1" Content="Score" FontWeight="Bold" HorizontalAlignment="Center"/>
+                            <Label Grid.Row="0" Grid.Column="2" Content="Racial Bonus" FontWeight="Bold" HorizontalAlignment="Center" Margin="10,0"/>
+                            <Label Grid.Row="0" Grid.Column="3" Content="Final Score" FontWeight="Bold" HorizontalAlignment="Center" Margin="10,0"/>
+
+                            <Label Content="Strength:" Grid.Row="1" Grid.Column="0" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                            <view:NumericUpDown ValorChanged="nudStrength_ValorChanged" x:Name="nudStrength" Grid.Row="1" Grid.Column="1" Margin="5" Min="8" Max="15" Valor="8" />
+                            <Label Grid.Row="1" Grid.Column="2" x:Name="lblStrengthBonus" Content="+0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <Label Grid.Row="1" Grid.Column="3" x:Name="lblStrengthFinal" Content="8 (-1)" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0"/>
+
+                            <Label Content="Dexterity:" Grid.Row="2" Grid.Column="0" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                            <view:NumericUpDown ValorChanged="nudDexterity_ValorChanged" x:Name="nudDexterity" Grid.Row="2" Grid.Column="1" Margin="5" Min="8" Max="15" Valor="8" />
+                            <Label Grid.Row="2" Grid.Column="2" x:Name="lblDexterityBonus" Content="+0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <Label Grid.Row="2" Grid.Column="3" x:Name="lblDexterityFinal" Content="8 (-1)" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0"/>
+
+                            <Label Content="Constitution:" Grid.Row="3" Grid.Column="0" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                            <view:NumericUpDown ValorChanged="nudConstitution_ValorChanged" x:Name="nudConstitution" Grid.Row="3" Grid.Column="1" Margin="5" Min="8" Max="15" Valor="8" />
+                            <Label Grid.Row="3" Grid.Column="2" x:Name="lblConstitutionBonus" Content="+0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <Label Grid.Row="3" Grid.Column="3" x:Name="lblConstitutionFinal" Content="8 (-1)" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0"/>
+
+                            <Label Content="Intelligence:" Grid.Row="4" Grid.Column="0" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                            <view:NumericUpDown ValorChanged="nudIntelligence_ValorChanged" x:Name="nudIntelligence" Grid.Row="4" Grid.Column="1" Margin="5" Min="8" Max="15" Valor="8" />
+                            <Label Grid.Row="4" Grid.Column="2" x:Name="lblIntelligenceBonus" Content="+0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <Label Grid.Row="4" Grid.Column="3" x:Name="lblIntelligenceFinal" Content="8 (-1)" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0"/>
+
+                            <Label Content="Wisdom:" Grid.Row="5" Grid.Column="0" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                            <view:NumericUpDown ValorChanged="nudWisdom_ValorChanged" x:Name="nudWisdom" Grid.Row="5" Grid.Column="1" Margin="5" Min="8" Max="15" Valor="8" />
+                            <Label Grid.Row="5" Grid.Column="2" x:Name="lblWisdomBonus" Content="+0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <Label Grid.Row="5" Grid.Column="3" x:Name="lblWisdomFinal" Content="8 (-1)" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0"/>
+
+                            <Label Content="Charisma:" Grid.Row="6" Grid.Column="0" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                            <view:NumericUpDown ValorChanged="nudCharisma_ValorChanged" x:Name="nudCharisma" Grid.Row="6" Grid.Column="1" Margin="5" Min="8" Max="15" Valor="8" />
+                            <Label Grid.Row="6" Grid.Column="2" x:Name="lblCharismaBonus" Content="+0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <Label Grid.Row="6" Grid.Column="3" x:Name="lblCharismaFinal" Content="8 (-1)" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0"/>
+
+                            <Label x:Name="lblSpentPoints" Grid.Row="7" Grid.Column="1" Content="Spent score: 0/27" HorizontalAlignment="Center"  FontWeight="Bold"/>
+                        </Grid>
+
+                        <Label Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" Style="{StaticResource DnDSubSectionTitle}">Class Skills</Label>
+                        <!--Grid classSkills-->
+                        <Grid Grid.Row="5" Margin="20,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Content="Choose 2:" HorizontalAlignment="Center"/>
+                            <ComboBox x:Name="cmbClassSkill1" Grid.Column="1"/>
+                            <ComboBox x:Name="cmbClassSkill2" Grid.Column="2"/>
+                        </Grid>
+                    </Grid>
+
+                </ScrollViewer>
             </TabItem>
 
 

@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "D:\\DAM2\\Interficies\\practiques_interficies\\DI_practica1\\DI_practica1\\DI_P1_DungeonsAndDragons\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|d:\\dam2\\interficies\\practiques_interficies\\di_practica1\\di_practica1\\di_p1_dungeonsanddragons\\di_p1_dungeonsanddragons\\finestres\\creaciopersonatge.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|solutionrelative:di_p1_dungeonsanddragons\\finestres\\creaciopersonatge.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|d:\\dam2\\interficies\\practiques_interficies\\di_practica1\\di_practica1\\di_p1_dungeonsanddragons\\di_p1_dungeonsanddragons\\view\\fitxaspecie.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|solutionrelative:di_p1_dungeonsanddragons\\view\\fitxaspecie.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|d:\\dam2\\interficies\\practiques_interficies\\di_practica1\\di_practica1\\di_p1_dungeonsanddragons\\di_p1_dungeonsanddragons\\finestres\\creaciopersonatge.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|solutionrelative:di_p1_dungeonsanddragons\\finestres\\creaciopersonatge.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|d:\\dam2\\interficies\\practiques_interficies\\di_practica1\\di_practica1\\di_p1_dungeonsanddragons\\di_p1_dungeonsanddragons\\view\\numericupdown.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{E1301836-E924-451E-90CB-B0F302245078}|DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons.csproj|solutionrelative:di_p1_dungeonsanddragons\\view\\numericupdown.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,39 +26,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FitxaSpecie.xaml",
-              "DocumentMoniker": "D:\\DAM2\\Interficies\\practiques_interficies\\DI_practica1\\DI_practica1\\DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons\\View\\FitxaSpecie.xaml",
-              "RelativeDocumentMoniker": "DI_P1_DungeonsAndDragons\\View\\FitxaSpecie.xaml",
-              "ToolTip": "D:\\DAM2\\Interficies\\practiques_interficies\\DI_practica1\\DI_practica1\\DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons\\View\\FitxaSpecie.xaml",
-              "RelativeToolTip": "DI_P1_DungeonsAndDragons\\View\\FitxaSpecie.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-11-16T21:52:09.124Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CreacioPersonatge.xaml.cs",
-              "DocumentMoniker": "D:\\DAM2\\Interficies\\practiques_interficies\\DI_practica1\\DI_practica1\\DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons\\Finestres\\CreacioPersonatge.xaml.cs",
-              "RelativeDocumentMoniker": "DI_P1_DungeonsAndDragons\\Finestres\\CreacioPersonatge.xaml.cs",
-              "ToolTip": "D:\\DAM2\\Interficies\\practiques_interficies\\DI_practica1\\DI_practica1\\DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons\\Finestres\\CreacioPersonatge.xaml.cs",
-              "RelativeToolTip": "DI_P1_DungeonsAndDragons\\Finestres\\CreacioPersonatge.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-16T21:46:06.551Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CreacioPersonatge.xaml",
-              "DocumentMoniker": "D:\\DAM2\\Interficies\\practiques_interficies\\DI_practica1\\DI_practica1\\DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons\\Finestres\\CreacioPersonatge.xaml",
-              "RelativeDocumentMoniker": "DI_P1_DungeonsAndDragons\\Finestres\\CreacioPersonatge.xaml",
-              "ToolTip": "D:\\DAM2\\Interficies\\practiques_interficies\\DI_practica1\\DI_practica1\\DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons\\Finestres\\CreacioPersonatge.xaml*",
-              "RelativeToolTip": "DI_P1_DungeonsAndDragons\\Finestres\\CreacioPersonatge.xaml*",
+              "Title": "NumericUpDown.xaml",
+              "DocumentMoniker": "D:\\DAM2\\Interficies\\practiques_interficies\\DI_practica1\\DI_practica1\\DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons\\View\\NumericUpDown.xaml",
+              "RelativeDocumentMoniker": "DI_P1_DungeonsAndDragons\\View\\NumericUpDown.xaml",
+              "ToolTip": "D:\\DAM2\\Interficies\\practiques_interficies\\DI_practica1\\DI_practica1\\DI_P1_DungeonsAndDragons\\DI_P1_DungeonsAndDragons\\View\\NumericUpDown.xaml",
+              "RelativeToolTip": "DI_P1_DungeonsAndDragons\\View\\NumericUpDown.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-11-16T19:25:52.278Z",
+              "WhenOpened": "2025-11-17T00:26:43.245Z",
               "EditorCaption": ""
             }
           ]

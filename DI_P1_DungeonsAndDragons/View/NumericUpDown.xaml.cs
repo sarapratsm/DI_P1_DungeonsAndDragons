@@ -27,6 +27,7 @@ namespace DI_P1_DungeonsAndDragons.View
     [DependencyProperty<int>("Min", DefaultValue = 8, Description = "Min value", OnChanged = "OnMinChanged")]
     public partial class NumericUpDown : UserControl
     {
+        public event EventHandler ValorChanged;
         public NumericUpDown()
         {
             InitializeComponent();
@@ -47,8 +48,14 @@ namespace DI_P1_DungeonsAndDragons.View
         public void OnValorChanged()
         {
             Valor = Math.Clamp(Valor, Min, Max);
-            btnMenys.IsEnabled = Valor != Min;
-            btnMes.IsEnabled = Valor != Max;
+
+            if (btnMenys != null && btnMes != null)
+            {
+                btnMenys.IsEnabled = Valor != Min;
+                btnMes.IsEnabled = Valor != Max;
+            }
+
+            ValorChanged?.Invoke(this, EventArgs.Empty);
         }
 
         public void OnMinChanged(int old, int newValue)
