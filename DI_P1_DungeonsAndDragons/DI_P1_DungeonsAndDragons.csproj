@@ -13,6 +13,13 @@
     <None Remove="img\logotransp.png" />
     <None Remove="img\Sample1.jpg" />
     <None Remove="img\Sample10.jpg" />
+    <None Remove="img\Sample11.jpg" />
+    <None Remove="img\Sample12.jpg" />
+    <None Remove="img\Sample13.jpg" />
+    <None Remove="img\sample14.jpg" />
+    <None Remove="img\Sample15.jpg" />
+    <None Remove="img\Sample16.jpg" />
+    <None Remove="img\Sample17.jpg" />
     <None Remove="img\Sample2.jpg" />
     <None Remove="img\Sample3.jpg" />
     <None Remove="img\Sample4.jpg" />
@@ -20,6 +27,7 @@
     <None Remove="img\Sample6.jpg" />
     <None Remove="img\Sample7.jpg" />
     <None Remove="img\Sample8.jpg" />
+    <None Remove="img\Sample8.jpg~" />
     <None Remove="img\Sample9.jpg" />
     <None Remove="logodnd.png" />
     <None Remove="Resources\alignments.json" />
@@ -67,6 +75,27 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\Sample10.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Sample11.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Sample12.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Sample13.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\sample14.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Sample15.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Sample16.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Sample17.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\Sample2.jpg">

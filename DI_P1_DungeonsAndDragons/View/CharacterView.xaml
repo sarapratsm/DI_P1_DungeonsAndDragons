@@ -5,63 +5,54 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DI_P1_DungeonsAndDragons.View"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="400">
+             d:DesignHeight="130" d:DesignWidth="450">
 
-    <Border Grid.Column="1" BorderBrush="#B9711A" BorderThickness="2">
+    <Border BorderBrush="#B9711A" BorderThickness="2" 
+            Background="#FFF8E7" CornerRadius="8" 
+            Margin="5" Padding="5">
+
+        <Border.Effect>
+            <DropShadowEffect Color="Black" BlurRadius="5" ShadowDepth="2" Opacity="0.2"/>
+        </Border.Effect>
 
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <!-- Imatge del personatge -->
-            <Image x:Name="imgPersonatge"
-               Grid.Column="0"
-               Grid.Row="0"
-               Grid.RowSpan="3"
-               Margin="10"
-               Stretch="Uniform"
-               MaxWidth="150"
-               Source="{Binding Path=TheCharacter.ImageUrl,
-                                RelativeSource={RelativeSource AncestorType=local:CharacterView},
-                                FallbackValue={x:Null}}"/>
 
-            <!-- Nom -->
-            <Label x:Name="txbNom"
-                   Grid.Column="1"
-                   Grid.Row="0"
-                   FontSize="24"
-                   FontWeight="Bold"
-                   Margin="10"
-                   Style="{StaticResource DnDMiniTitleStyle}"
-                   Content="{Binding Path=TheCharacter.Nom,
-                                  RelativeSource={RelativeSource AncestorType=local:CharacterView},
-                                  FallbackValue='Nom'}"/>
+            <Border Grid.Column="0" Width="100" Height="100" 
+                    CornerRadius="6" BorderBrush="#D2B48C" BorderThickness="1"
+                    Margin="5">
+                <Border.Background>
+                    <ImageBrush ImageSource="{Binding TheCharacter.ImageUrl, RelativeSource={RelativeSource AncestorType=local:CharacterView}, FallbackValue={x:Null}}" 
+                                Stretch="UniformToFill"/>
+                </Border.Background>
+            </Border>
 
-            <!-- Espècie -->
-            <TextBlock x:Name="txtSpeciePersonatge"
-                   Grid.Column="1"
-                   Grid.Row="1"
-                   TextWrapping="Wrap"
-                   Margin="10"
-                   Text="{Binding Path=TheCharacter.Species.Name,
-                                  RelativeSource={RelativeSource AncestorType=local:CharacterView},
-                                  FallbackValue='Espècie'}"/>
+            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="15,0,0,0">
 
-            <!-- Classe -->
-            <TextBlock x:Name="txtClassePersonatge"
-                   Grid.Column="1"
-                   Grid.Row="2"
-                   TextWrapping="Wrap"
-                   Margin="10"
-                   Text="{Binding Path=TheCharacter.Classe.Name,
-                                  RelativeSource={RelativeSource AncestorType=local:CharacterView},
-                                  FallbackValue='Classe'}"/>
+                <TextBlock Text="{Binding TheCharacter.Nom, RelativeSource={RelativeSource AncestorType=local:CharacterView}, FallbackValue='Character Name'}"
+                           FontFamily="{StaticResource DnDFontFamily}"
+                           FontSize="22" 
+                           FontWeight="Bold"
+                           Foreground="#D65E3C"
+                           TextTrimming="CharacterEllipsis"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <TextBlock Text="{Binding TheCharacter.Species.Name, RelativeSource={RelativeSource AncestorType=local:CharacterView}, FallbackValue='Species'}" 
+                               FontSize="15" FontWeight="SemiBold" Foreground="#555"/>
+
+                    <TextBlock Text=" • " FontSize="15" Foreground="#D65E3C" Margin="5,0"/>
+
+                    <TextBlock Text="{Binding TheCharacter.Classe.Name, RelativeSource={RelativeSource AncestorType=local:CharacterView}, FallbackValue='Class'}" 
+                               FontSize="15" Foreground="#333"/>
+                </StackPanel>
+
+                <TextBlock Text="{Binding TheCharacter.Alignment.Name, RelativeSource={RelativeSource AncestorType=local:CharacterView}, FallbackValue='Alignment'}"
+                           FontStyle="Italic" FontSize="13" Foreground="#777" Margin="0,3,0,0"/>
+            </StackPanel>
+
         </Grid>
     </Border>
 

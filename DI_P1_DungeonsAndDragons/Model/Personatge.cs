@@ -96,27 +96,15 @@ namespace DI_P1_DungeonsAndDragons.Model
                     var species = Species.GetSpecies();
                     var alignments = Alignment.GetAlignments();
 
-                    // 1. Elzha
-                    llistaPersonatges.Add(new Personatge(
-                        "Elzha",
-                        classes.First(c => c.Name == "Bard"),
-                        species.First(s => s.Name == "Tiefling"),
-                        "/img/Sample1.jpg",
-                        2.10f, 120f, 32,
-                        alignments.First(a => a.Name == "Chaotic Good")
-                    ));
-
-                    // 2. Elandra
                     llistaPersonatges.Add(new Personatge(
                         "Elandra Moonwhisper",
-                        classes.First(c => c.Name == "Druid"),
-                        species.First(s => s.Name == "Elf"),
-                        "/img/Sample2.jpg",
-                        1.70f, 55f, 140,
-                        alignments.First(a => a.Name == "Neutral Good")
-                    ));
+                        classes.First(c => c.Name == "Bard"),
+                        species.First(s => s.Name == "Tiefling"),
+                        "/img/Sample12.jpg",
+                        2.10f, 120f, 32,
+                        alignments.First(a => a.Name == "Chaotic Good")
+                    ));              
 
-                    // 3. Nyx
                     llistaPersonatges.Add(new Personatge(
                         "Nyx Shadowstep",
                         classes.First(c => c.Name == "Rogue"),
@@ -126,7 +114,6 @@ namespace DI_P1_DungeonsAndDragons.Model
                         alignments.First(a => a.Name == "Chaotic Neutral")
                     ));
 
-                    // 4. Lady Aldrena
                     llistaPersonatges.Add(new Personatge(
                         "Lady Aldrena Brightshield",
                         classes.First(c => c.Name == "Paladin"),
@@ -136,17 +123,15 @@ namespace DI_P1_DungeonsAndDragons.Model
                         alignments.First(a => a.Name == "Lawful Good")
                     ));
 
-                    // 5. Cobol
                     llistaPersonatges.Add(new Personatge(
                         "Cobol the Silent",
-                        classes.First(c => c.Name == "Paladin"),
+                        classes.First(c => c.Name == "Druid"),
                         species.First(s => s.Name == "Dragonborn"),
-                        "/img/Sample5.jpg",
+                        "/img/Sample14.jpg",
                         1.83f, 80f, 38,
                         alignments.First(a => a.Name == "Lawful Neutral")
                     ));
 
-                    // 6. Kaleia
                     llistaPersonatges.Add(new Personatge(
                         "Kaleia",
                         classes.First(c => c.Name == "Druid"),
@@ -156,7 +141,6 @@ namespace DI_P1_DungeonsAndDragons.Model
                         alignments.First(a => a.Name == "Lawful Good")
                     ));
 
-                    // 7. Zorith
                     llistaPersonatges.Add(new Personatge(
                         "Zorith Malqir",
                         classes.First(c => c.Name == "Bard"),
@@ -166,7 +150,6 @@ namespace DI_P1_DungeonsAndDragons.Model
                         alignments.First(a => a.Name == "Lawful Good")
                     ));
 
-                    // 8. Ennerys
                     llistaPersonatges.Add(new Personatge(
                         "Ennerys",
                         classes.First(c => c.Name == "Wizard"),
@@ -176,24 +159,31 @@ namespace DI_P1_DungeonsAndDragons.Model
                         alignments.First(a => a.Name == "Neutral Good")
                     ));
 
-                    // 9. Mordek
                     llistaPersonatges.Add(new Personatge(
                         "Mordek Kragthorn",
                         classes.First(c => c.Name == "Warlock"),
                         species.First(s => s.Name == "Gnome"),
                         "/img/Sample9.jpg",
                         1.77f, 68f, 56,
-                        alignments.First(a => a.Name == "Neutral Evil")
+                        alignments.First(a => a.Name == "Lawful Evil")
                     ));
 
-                    // 10. Tara
                     llistaPersonatges.Add(new Personatge(
                         "Tara Greenbottle",
                         classes.First(c => c.Name == "Ranger"),
-                        species.First(s => s.Name == "Elf"),
-                        "/img/Sample10.jpg",
+                        species.First(s => s.Name == "Orc"),
+                        "/img/Sample11.jpg",
                         0.98f, 28f, 33,
-                        alignments.First(a => a.Name == "Chaotic Good")
+                        alignments.First(a => a.Name == "Chaotic Neutral")
+                    ));
+
+                    llistaPersonatges.Add(new Personatge(
+                        "Mikaiah",
+                        classes.First(c => c.Name == "Fighter"),
+                        species.First(s => s.Name == "Human"),
+                        "/img/Sample15.jpg",
+                        1.70f, 55f, 140,
+                        alignments.First(a => a.Name == "Neutral Evil")
                     ));
                 }
 

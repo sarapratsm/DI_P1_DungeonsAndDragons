@@ -523,7 +523,45 @@ namespace DI_P1_DungeonsAndDragons
 
         private void btnUpload_Click(object sender, RoutedEventArgs e)
         {
-           
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Imatges|*.jpg;*.png;*.bmp;*.jpeg"; // Filtre per imatges
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                try
+                {
+                    // 1. Obtenim la ruta del fitxer original seleccionat
+                    string rutaOrigen = openFileDialog.FileName;
+                    string nomFitxer = System.IO.Path.GetFileName(rutaOrigen);
+
+                    // 2. Definim la ruta de destí (la carpeta 'img' on s'executa l'app)
+                    string carpetaDesti = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "img");
+
+                    // Si la carpeta 'img' no existeix a la carpeta de sortida (bin/Debug...), la creem
+                    if (!System.IO.Directory.Exists(carpetaDesti))
+                    {
+                        System.IO.Directory.CreateDirectory(carpetaDesti);
+                    }
+
+                    string rutaDesti = System.IO.Path.Combine(carpetaDesti, nomFitxer);
+
+                    // 3. Copiem el fitxer a la nostra carpeta
+                    // El 'true' permet sobreescriure si ja existeix un fitxer amb el mateix nom
+                    System.IO.File.Copy(rutaOrigen, rutaDesti, true);
+
+                    // 4. Assignem la nova ruta relativa al personatge
+                    // Fem servir '/img/' perquè WPF ho entengui com a ruta relativa
+                    PjAux.ImageUrl = $"/img/{nomFitxer}";
+
+                    // (Opcional) Si la imatge no s'actualitza automàticament per algun motiu, 
+                    // pots forçar el refresc així:
+                    // imgPhotoPreview.Source = new BitmapImage(new Uri(rutaDesti));
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al pujar la imatge: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         #endregion

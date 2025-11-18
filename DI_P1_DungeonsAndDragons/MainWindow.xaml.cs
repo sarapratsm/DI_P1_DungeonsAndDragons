@@ -48,7 +48,7 @@ namespace DI_P1_DungeonsAndDragons
         private void actualitzaBotons()
         {
             //el boto dret s'activa si hi ha un personatge seleccionat i l'equip té menys de 6 personatges i el personatge seleccionat no està a l'equip
-            btnRight.IsEnabled = personatgeSeleccionat != null && llistaEquip.Count < 6 && !llistaEquip.Contains(personatgeSeleccionat);
+            btnRight.IsEnabled = personatgeSeleccionat != null && llistaEquip.Count < 5 && !llistaEquip.Contains(personatgeSeleccionat);
 
             //el boto esquerre s'activa si hi ha un personatge seleccionat i el personatge seleccionat està a l'equip
             btnLeft.IsEnabled = personatgeSeleccionat != null && llistaEquip.Contains(personatgeSeleccionat);
