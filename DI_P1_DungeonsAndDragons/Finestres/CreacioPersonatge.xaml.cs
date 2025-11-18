@@ -1,5 +1,6 @@
 ﻿using DI_P1_DungeonsAndDragons.Model;
 using DI_P1_DungeonsAndDragons.View;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,6 +26,8 @@ namespace DI_P1_DungeonsAndDragons
     /// </summary>
     public partial class CreacioPersonatge : Window
     {
+        Personatge pjEditat; //Si venim d'editar, aquí està el personatge a editar.
+
         List<Classe> llistaClasses;
         Classe? selectedClass;
         List<Species> llistaSpecies;
@@ -33,10 +36,10 @@ namespace DI_P1_DungeonsAndDragons
         Alignment selectedAlignment;
         Dictionary<string, Label> bonusLabels;
 
-        int strength, dexterity, constitution, intelligence, wisdom, charisma, age;
         string characterName;
-        float height, weight;
         string skill1, skill2;
+        int strength, dexterity, constitution, intelligence, wisdom, charisma, age;
+        float height, weight;
 
         int totalSpent;
 
@@ -46,9 +49,26 @@ namespace DI_P1_DungeonsAndDragons
         bool personatgeValid;
         int mode;
 
+
+        //PjAux serà un personatge auxiliar per fer els bindings a la finestra.
+        public Personatge PjAux
+        {
+            get { return (Personatge)GetValue(PjAuxProperty); }
+            set { SetValue(PjAuxProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for PjAux.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty PjAuxProperty =
+            DependencyProperty.Register("PjAux", typeof(Personatge), typeof(CreacioPersonatge), new PropertyMetadata(null));
+
+
+
+
         public CreacioPersonatge(Personatge? personatgeNavegacio)
         {
             InitializeComponent();
+            this.DataContext = this;
+
 
             llistaAlignments = Model.Alignment.GetAlignments();
             llistaClasses = Model.Classe.GetClasses();
@@ -61,11 +81,12 @@ namespace DI_P1_DungeonsAndDragons
             if (personatgeNavegacio == null)
             {
                 mode = 0; // 0 = Nou personatge
+                PjAux = new Personatge(); // Creem un de nou
             }
             else
             {
                 mode = 1; // 1 = Editar
-                editedPersonatge = personatgeNavegacio; // Assignem el que estem editant
+                PjAux = personatgeNavegacio; // Assignem el que estem editant
             }
 
             bonusLabels = new Dictionary<string, Label>
@@ -78,39 +99,39 @@ namespace DI_P1_DungeonsAndDragons
                 { "Charisma", lblCharismaBonus }
             };
 
-            
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
-        {        
+        {
 
             if (mode == 1) // Si estem editant
             {
-                selectedClass = editedPersonatge.Classe;
-                selectedSpecies = editedPersonatge.Species;
+                selectedClass = PjAux.Classe;
+                selectedSpecies = PjAux.Species;
                 // Assignar tots els valors
-                Classe lst_classe = llistaClasses.FirstOrDefault(c => c.Name == editedPersonatge.Classe.Name);
+                Classe lst_classe = llistaClasses.FirstOrDefault(c => c.Name == PjAux.Classe.Name);
                 if (lst_classe != null)
                 {
                     lsbClasses.SelectedItem = lst_classe;
                 }
 
                 // Per a la Especie
-                Species lst_species = llistaSpecies.FirstOrDefault(s => s.Name == editedPersonatge.Species.Name);
+                Species lst_species = llistaSpecies.FirstOrDefault(s => s.Name == PjAux.Species.Name);
                 if (lst_species != null)
                 {
                     lsbSpecies.SelectedItem = lst_species;
                 }
 
                 // Per al Alignment
-                Alignment lst_alignment = llistaAlignments.FirstOrDefault(a => a.Name == editedPersonatge.Alignment.Name);
+                Alignment lst_alignment = llistaAlignments.FirstOrDefault(a => a.Name == PjAux.Alignment.Name);
                 if (lst_alignment != null)
                 {
                     cmbAlignment.SelectedItem = lst_alignment;
                 }
 
-                txtName.Text = editedPersonatge.Nom;
-                txtAge.Text = editedPersonatge.Edat + "";
+                txtName.Text = PjAux.Nom;
+                txtAge.Text = PjAux.Edat + "";
                 //TODO: carregar la resta de dades (puntuacions, skills, etc.)
             }
             else // Si estem creant un de nou
@@ -433,7 +454,7 @@ namespace DI_P1_DungeonsAndDragons
 
         private bool validAge()
         {
-            if(txtAge.Text.Trim() == "")
+            if (txtAge.Text.Trim() == "")
             {
                 return false;
             }
@@ -451,7 +472,7 @@ namespace DI_P1_DungeonsAndDragons
 
         private bool validHeight()
         {
-            if(txtHeight.Text.Trim() == "")
+            if (txtHeight.Text.Trim() == "")
             {
                 return false;
             }
@@ -469,7 +490,7 @@ namespace DI_P1_DungeonsAndDragons
 
         private bool validWeight()
         {
-            if(txtWeight.Text.Trim() == "")
+            if (txtWeight.Text.Trim() == "")
             {
                 return false;
             }
@@ -502,7 +523,7 @@ namespace DI_P1_DungeonsAndDragons
 
         private void btnUpload_Click(object sender, RoutedEventArgs e)
         {
-
+           
         }
 
         #endregion
@@ -555,6 +576,7 @@ namespace DI_P1_DungeonsAndDragons
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
+            PjAux=pjEditat; //Revertim els canvis
             Close();
         }
 
@@ -562,58 +584,30 @@ namespace DI_P1_DungeonsAndDragons
         {
             if (PersonatgeEsValid())
             {
-                // 1. Assignar les dades al personatge
+                // Guardar classe, etc.
+                PjAux.Classe = (Classe)lsbClasses.SelectedItem; 
+                PjAux.Species = (Species)lsbSpecies.SelectedItem;
+                PjAux.Alignment = (Alignment)cmbAlignment.SelectedItem;
+          
+                //Hbalitats
+                PjAux.Skill1 = cmbClassSkill1.SelectedItem?.ToString() ?? "";
+                PjAux.Skill2 = cmbClassSkill2.SelectedItem?.ToString() ?? "";
 
-                Personatge personatgeAGuardar;
-                if (mode == 0) // Nou
-                {
-                    personatgeAGuardar = nouPersonatge;
-                }
-                else // Editat
-                {
-                    personatgeAGuardar = editedPersonatge;
-                }
+                //Assignar punts
+                PjAux.PuntsFor = nudStrength.Valor;
+                PjAux.PuntsDes = nudDexterity.Valor;
+                PjAux.PuntsCon = nudConstitution.Valor;
+                PjAux.PuntsInt = nudIntelligence.Valor;
+                PjAux.PuntsSav = nudWisdom.Valor;
+                PjAux.PuntsCar = nudCharisma.Valor;
 
-                // Assignem TOTS els camps (igual que al carregar)
-                personatgeAGuardar.Nom = txtName.Text;
-                personatgeAGuardar.Classe = selectedClass;
-                personatgeAGuardar.Species = selectedSpecies;
-                personatgeAGuardar.Alignment = (Alignment)cmbAlignment.SelectedItem;
-                personatgeAGuardar.Edat = age;
-                personatgeAGuardar.Altura = height;
-                personatgeAGuardar.Pes = weight;
-                personatgeAGuardar.Skill1 = (string)cmbClassSkill1.SelectedItem;
-                personatgeAGuardar.Skill2 = (string)cmbClassSkill2.SelectedItem;
-                //... TODO: Assignar la resta de puntuacions de habilitats.
-
-                // 2. Tancar la finestra
                 Close();
             }
         }
 
 
 
-        public Personatge nouPersonatge
-        {
-            get { return (Personatge)GetValue(nouPersonatgeProperty); }
-            set { SetValue(nouPersonatgeProperty, value); }
-        }
 
-        // Using a DependencyProperty as the backing store for nouPersonatge.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty nouPersonatgeProperty =
-            DependencyProperty.Register("nouPersonatge", typeof(Personatge), typeof(CreacioPersonatge), new PropertyMetadata(null));
-
-
-
-        public Personatge editedPersonatge
-        {
-            get { return (Personatge)GetValue(editedPersonatgeProperty); }
-            set { SetValue(editedPersonatgeProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for editedPersonatge.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty editedPersonatgeProperty =
-            DependencyProperty.Register("editedPersonatge", typeof(Personatge), typeof(CreacioPersonatge), new PropertyMetadata(null));
 
 
 

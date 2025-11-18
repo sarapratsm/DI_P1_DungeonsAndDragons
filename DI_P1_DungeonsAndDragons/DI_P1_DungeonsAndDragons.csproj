@@ -11,6 +11,16 @@
   <ItemGroup>
     <None Remove="img\logodnd.png" />
     <None Remove="img\logotransp.png" />
+    <None Remove="img\Sample1.jpg" />
+    <None Remove="img\Sample10.jpg" />
+    <None Remove="img\Sample2.jpg" />
+    <None Remove="img\Sample3.jpg" />
+    <None Remove="img\Sample4.jpg" />
+    <None Remove="img\Sample5.jpg" />
+    <None Remove="img\Sample6.jpg" />
+    <None Remove="img\Sample7.jpg" />
+    <None Remove="img\Sample8.jpg" />
+    <None Remove="img\Sample9.jpg" />
     <None Remove="logodnd.png" />
     <None Remove="Resources\alignments.json" />
     <None Remove="Resources\classes.json" />
@@ -49,6 +59,40 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="img\Sample1.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Sample10.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Sample2.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Sample3.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Sample4.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Sample5.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Sample6.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Sample7.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Sample8.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Sample9.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>

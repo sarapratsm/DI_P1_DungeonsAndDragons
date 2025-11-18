@@ -110,7 +110,7 @@ namespace DI_P1_DungeonsAndDragons
             //creacioPersonatgeWindow.Show(); // Mostra la finestra de manera no modal
             creacioPersonatgeWindow.ShowDialog(); // Mostra la finestra de manera modal
 
-            Personatge nou = creacioPersonatgeWindow.nouPersonatge;
+            Personatge nou = creacioPersonatgeWindow.PjAux;
 
             llistaPersonatges.Add(nou);
 
@@ -138,14 +138,13 @@ namespace DI_P1_DungeonsAndDragons
 
             creacioPersonatgeWindow.ShowDialog(); // Mostra la finestra de manera modal
 
-            Personatge? editat = creacioPersonatgeWindow.editedPersonatge;
+            Personatge? editat = creacioPersonatgeWindow.PjAux;
             if (editat != null)
             {
                 llistaPersonatges.Remove(item: personatgeSeleccionat);
                 llistaPersonatges.Add(editat);
 
             }
-
 
             actualitzaBotons();
 
