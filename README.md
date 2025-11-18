@@ -1,4 +1,3 @@
-Pràctica 1 de la asignatura de Disseny d'Interficies del CFGS de Desenvolupament d'Aplicacions Multiplataforma.
 
 # 🐉 Dungeons & Dragons Character Editor (WPF)
 
@@ -7,7 +6,9 @@ Pràctica 1 de la asignatura de Disseny d'Interficies del CFGS de Desenvolupamen
 ![Language](https://img.shields.io/badge/Language-C%23-green)
 ![Status](https://img.shields.io/badge/Status-Active-success)
 
-Una aplicación de escritorio desarrollada en **WPF (Windows Presentation Foundation)** para la gestión, creación y edición de personajes de Dungeons & Dragons (5e).
+Pràctica 1 de la asignatura de Disseny d'Interficies del CFGS de Desenvolupament d'Aplicacions Multiplataforma.
+
+Una aplicación de escritorio desarrollada en **WPF (Windows Presentation Foundation)** para la gestión, creación y edición de personajes de Dungeons & Dragons.
 
 Este proyecto demuestra el uso de patrones de diseño modernos en WPF, enlace de datos (Data Binding), estilos personalizados y validación de formularios.
 
