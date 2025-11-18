@@ -39,7 +39,7 @@ namespace DI_P1_DungeonsAndDragons.Model
             PuntsInt = 8;
             PuntsSav = 8;
             PuntsCar = 8;
-            Nom = "New Character";
+            Nom = "";
             ImageUrl = "/img/blank.jpg"; // Imatge per defecte
         }
 

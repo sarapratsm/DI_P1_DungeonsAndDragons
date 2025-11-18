@@ -221,10 +221,10 @@
                                     <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
 
-                                <Label Grid.Row="0" Grid.Column="0" Content="Name (*):" VerticalAlignment="Center"      Margin="10" HorizontalAlignment="Right"/>
-                                <Label Grid.Row="1" Grid.Column="0" Content="Height (*):" VerticalAlignment="Center"    Margin="10" HorizontalAlignment="Right"/>
-                                <Label Grid.Row="2" Grid.Column="0" Content="Weight (*):" VerticalAlignment="Center"    Margin="10" HorizontalAlignment="Right"/>
-                                <Label Grid.Row="3" Grid.Column="0" Content="Age (*):" VerticalAlignment="Center"       Margin="10" HorizontalAlignment="Right"/>
+                                <Label Grid.Row="0" Grid.Column="0" Content="Name (*):" VerticalAlignment="Center"      Margin="20" HorizontalAlignment="Right"/>
+                                <Label Grid.Row="1" Grid.Column="0" Content="Height (*):" VerticalAlignment="Center"    Margin="20" HorizontalAlignment="Right"/>
+                                <Label Grid.Row="2" Grid.Column="0" Content="Weight (*):" VerticalAlignment="Center"    Margin="20" HorizontalAlignment="Right"/>
+                                <Label Grid.Row="3" Grid.Column="0" Content="Age (*):" VerticalAlignment="Center"       Margin="20" HorizontalAlignment="Right"/>
 
                                 <TextBox  Grid.Row="0" Grid.Column="1" TextChanged="txtName_TextChanged" 
                                             x:Name="txtName" Margin="5" VerticalContentAlignment="Center" Padding="5,0"

@@ -56,8 +56,8 @@ namespace DI_P1_DungeonsAndDragons
             //El boto eliminar s'activa si hi ha un personatge seleccionat de la llista de personatges ListView i no es troba a la llista d'equip ListBox
             btnDeleteCharacter.IsEnabled = personatgeSeleccionat != null && !llistaEquip.Contains(personatgeSeleccionat);
 
-            //El botó crear personatge ha d'estar actiu si no hi ha una finestra de creacio activa
-            btnNewCharacter.IsEnabled = creacioPersonatgeWindow == null;
+            //El botó crear personatge ha d'estar actiu si no hi ha una finestra de creacio activa (TODO)
+            btnNewCharacter.IsEnabled=true;
         }
 
         private void btnLeft_Click(object sender, RoutedEventArgs e)
@@ -110,9 +110,16 @@ namespace DI_P1_DungeonsAndDragons
             //creacioPersonatgeWindow.Show(); // Mostra la finestra de manera no modal
             creacioPersonatgeWindow.ShowDialog(); // Mostra la finestra de manera modal
 
-            Personatge nou = creacioPersonatgeWindow.PjAux;
+            if (creacioPersonatgeWindow.PjAux == null)
+            {
+                //s'ha cancelat la creacio
+            }
+            else
+            {
+                Personatge nou = creacioPersonatgeWindow.PjAux;
+                llistaPersonatges.Add(nou);
 
-            llistaPersonatges.Add(nou);
+            }
 
             actualitzaBotons();
         }
@@ -126,6 +133,8 @@ namespace DI_P1_DungeonsAndDragons
         {
             creacioPersonatgeWindow?.Close();
             creacioPersonatgeWindow = null;
+            actualitzaBotons();
+
         }
 
         private void lsvPersonatges_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -145,7 +154,7 @@ namespace DI_P1_DungeonsAndDragons
                 llistaPersonatges.Add(editat);
 
             }
-
+            
             actualitzaBotons();
 
         }

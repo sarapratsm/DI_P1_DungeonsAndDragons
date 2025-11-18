@@ -53,10 +53,7 @@
         <!-- ListView que mostrarà una llista de personatges -->
         <ListView x:Name="lsvPersonatges" MouseDoubleClick="lsvPersonatges_MouseDoubleClick"  
           Grid.Row="2" Grid.Column="1"
-            SelectionChanged="lsvPersonatges_SelectionChanged"
-            >
-            <!--ScrollViewer.HorizontalScrollBarVisibility="Disabled"-->
-
+            SelectionChanged="lsvPersonatges_SelectionChanged">
             <!-- Personalització de l'estil dels ítems del ListView -->
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
@@ -66,13 +63,8 @@
                 </Style>
             </ListView.ItemContainerStyle>
 
-            <!-- Plantilla que defineix com es mostrarà cada ítem (DataTemplate) -->
             <ListView.ItemTemplate>
                 <DataTemplate>
-
-                    <!-- Cada element de la llista serà un UserControl CharacterView -->
-                    <!-- El binding TheCharacter="{Binding}" indica que el DataContext del CharacterView... -->
-                    <!-- ...serà l'objecte actual de la llista (un Personatge) -->
                     <view:CharacterView TheCharacter="{Binding}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -106,8 +98,9 @@
             </Grid.ColumnDefinitions>
             <Button x:Name="btnDeleteCharacter" Click="btnDeleteCharacter_Click" Grid.Column="0" FontFamily="Segoe MDL2 Assets" Style="{StaticResource IconButtonStyle}">&#xE74D;</Button>
             <Button x:Name="btnNewCharacter" Click="btnNewCharacter_Click" Grid.Column="1" Style="{StaticResource IconButtonStyle}">&#xE710;</Button>
-
         </Grid>
+
+        <Label Grid.Column="3" Grid.Row="3" Content="Choose up to 5 members"></Label>
 
     </Grid>
 </Window>

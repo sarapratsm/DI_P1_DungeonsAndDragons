@@ -51,7 +51,7 @@ namespace DI_P1_DungeonsAndDragons
 
 
         //PjAux serà un personatge auxiliar per fer els bindings a la finestra.
-        public Personatge PjAux
+        public Personatge? PjAux
         {
             get { return (Personatge)GetValue(PjAuxProperty); }
             set { SetValue(PjAuxProperty, value); }
@@ -614,7 +614,14 @@ namespace DI_P1_DungeonsAndDragons
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            PjAux=pjEditat; //Revertim els canvis
+            if (mode == 0)// 0 = Nou personatge
+            {
+                PjAux = null;
+            }
+            else if (mode == 1) //1=Editat
+            {
+                PjAux = pjEditat; //Revertim els canvis
+            }
             Close();
         }
 
