@@ -26,10 +26,6 @@ namespace DI_P1_DungeonsAndDragons.View
             InitializeComponent();
         }
 
-
-
-
-
         public Classe TheClasse
         {
             get { return (Classe)GetValue(TheClasseProperty); }

@@ -75,17 +75,11 @@
                                 <view:FitxaSpecie TheSpecies="{Binding}"></view:FitxaSpecie>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
-
-
                     </ListBox>
-
                 </Grid>
-
             </TabItem>
 
-
-
-
+            <!--Habilitats-->
             <TabItem Header="Abilities">
                 <DockPanel>
                     <Label DockPanel.Dock="Top" Content="Ability scores" Style="{StaticResource DnDSubSectionTitle}" 
@@ -194,7 +188,7 @@
             </TabItem>
 
 
-
+            <!--Personal info-->
             <TabItem Header="Personal Info">
                 <DockPanel Margin="10">
                     <Label DockPanel.Dock="Top" Style="{StaticResource DnDSubSectionTitle}" Content="Personal info" Margin="10,10,10,0"/>

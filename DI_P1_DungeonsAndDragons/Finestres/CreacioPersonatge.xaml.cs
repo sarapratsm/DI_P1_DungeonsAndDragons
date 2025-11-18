@@ -1,23 +1,10 @@
 ﻿using DI_P1_DungeonsAndDragons.Model;
 using DI_P1_DungeonsAndDragons.View;
 using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DI_P1_DungeonsAndDragons
 {
@@ -27,27 +14,24 @@ namespace DI_P1_DungeonsAndDragons
     public partial class CreacioPersonatge : Window
     {
         Personatge pjEditat; //Si venim d'editar, aquí està el personatge a editar.
+        int mode;
 
         List<Classe> llistaClasses;
         Classe? selectedClass;
         List<Species> llistaSpecies;
         Species? selectedSpecies;
         List<Alignment> llistaAlignments;
-        Alignment selectedAlignment;
         Dictionary<string, Label> bonusLabels;
 
         string characterName;
-        string skill1, skill2;
-        int strength, dexterity, constitution, intelligence, wisdom, charisma, age;
+        int age;
         float height, weight;
 
         int totalSpent;
 
-        // Esto crea una "señal" que otra ventana puede escuchar.
+        //Event quan es tanca la finestra
         public event EventHandler WindowClosed;
 
-        bool personatgeValid;
-        int mode;
 
 
         //PjAux serà un personatge auxiliar per fer els bindings a la finestra.
@@ -132,7 +116,6 @@ namespace DI_P1_DungeonsAndDragons
 
                 txtName.Text = PjAux.Nom;
                 txtAge.Text = PjAux.Edat + "";
-                //TODO: carregar la resta de dades (puntuacions, skills, etc.)
             }
             else // Si estem creant un de nou
             {
@@ -146,10 +129,6 @@ namespace DI_P1_DungeonsAndDragons
 
             ActualitzarBonusRacial();
             ActualitzarBonusTotal();
-
-
-
-
         }
 
         private void Window_Closed(object sender, EventArgs e)
@@ -546,15 +525,12 @@ namespace DI_P1_DungeonsAndDragons
                     string rutaDesti = System.IO.Path.Combine(carpetaDesti, nomFitxer);
 
                     // 3. Copiem el fitxer a la nostra carpeta
-                    // El 'true' permet sobreescriure si ja existeix un fitxer amb el mateix nom
                     System.IO.File.Copy(rutaOrigen, rutaDesti, true);
 
                     // 4. Assignem la nova ruta relativa al personatge
-                    // Fem servir '/img/' perquè WPF ho entengui com a ruta relativa
                     PjAux.ImageUrl = $"/img/{nomFitxer}";
 
-                    // (Opcional) Si la imatge no s'actualitza automàticament per algun motiu, 
-                    // pots forçar el refresc així:
+                    // forçar refrescar
                     // imgPhotoPreview.Source = new BitmapImage(new Uri(rutaDesti));
                 }
                 catch (Exception ex)
@@ -601,17 +577,6 @@ namespace DI_P1_DungeonsAndDragons
             invalidControl.Focus();
         }
 
-
-
-
-
-
-
-
-
-
-
-
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             if (mode == 0)// 0 = Nou personatge
@@ -630,10 +595,10 @@ namespace DI_P1_DungeonsAndDragons
             if (PersonatgeEsValid())
             {
                 // Guardar classe, etc.
-                PjAux.Classe = (Classe)lsbClasses.SelectedItem; 
+                PjAux.Classe = (Classe)lsbClasses.SelectedItem;
                 PjAux.Species = (Species)lsbSpecies.SelectedItem;
                 PjAux.Alignment = (Alignment)cmbAlignment.SelectedItem;
-          
+
                 //Hbalitats
                 PjAux.Skill1 = cmbClassSkill1.SelectedItem?.ToString() ?? "";
                 PjAux.Skill2 = cmbClassSkill2.SelectedItem?.ToString() ?? "";
@@ -649,12 +614,5 @@ namespace DI_P1_DungeonsAndDragons
                 Close();
             }
         }
-
-
-
-
-
-
-
     }
 }

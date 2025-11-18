@@ -1,21 +1,11 @@
 ﻿using DI_P1_DungeonsAndDragons.Model;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DI_P1_DungeonsAndDragons
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         Personatge? personatgeSeleccionat;
@@ -26,8 +16,6 @@ namespace DI_P1_DungeonsAndDragons
         public MainWindow()
         {
             InitializeComponent();
-
-
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -101,6 +89,21 @@ namespace DI_P1_DungeonsAndDragons
             }
         }
 
+        private void CreacioPersonatge_Closed(object? sender, EventArgs e)
+        {
+            btnNewCharacter.IsEnabled = true;
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            creacioPersonatgeWindow?.Close();
+            creacioPersonatgeWindow = null;
+            actualitzaBotons();
+
+        }
+
+        //TODO: Economitzar codi de les següents dues funcions.
+
         private void btnNewCharacter_Click(object sender, RoutedEventArgs e)
         {
             creacioPersonatgeWindow = new CreacioPersonatge(null);
@@ -120,21 +123,7 @@ namespace DI_P1_DungeonsAndDragons
                 llistaPersonatges.Add(nou);
 
             }
-
             actualitzaBotons();
-        }
-
-        private void CreacioPersonatge_Closed(object? sender, EventArgs e)
-        {
-            btnNewCharacter.IsEnabled = true;
-        }
-
-        private void Window_Closed(object sender, EventArgs e)
-        {
-            creacioPersonatgeWindow?.Close();
-            creacioPersonatgeWindow = null;
-            actualitzaBotons();
-
         }
 
         private void lsvPersonatges_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -153,8 +142,7 @@ namespace DI_P1_DungeonsAndDragons
                 llistaPersonatges.Remove(item: personatgeSeleccionat);
                 llistaPersonatges.Add(editat);
 
-            }
-            
+            }    
             actualitzaBotons();
 
         }
