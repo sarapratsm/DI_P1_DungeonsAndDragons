@@ -4,7 +4,6 @@
 ![.NET](https://img.shields.io/badge/.NET-8.0-purple)
 ![WPF](https://img.shields.io/badge/Framework-WPF-blue)
 ![Language](https://img.shields.io/badge/Language-C%23-green)
-![Status](https://img.shields.io/badge/Status-Active-success)
 
 Pràctica 1 de la asignatura de Disseny d'Interficies del CFGS de Desenvolupament d'Aplicacions Multiplataforma.
 
