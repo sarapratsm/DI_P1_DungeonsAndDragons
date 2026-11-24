@@ -1,3 +1,6 @@
+![CFGS DAM](https://img.shields.io/badge/CFGS-DAM-green)
+![DI](https://img.shields.io/badge/assignatura-DI-yellow)
+
 
 # 🐉 Dungeons & Dragons Character Editor (WPF)
 
