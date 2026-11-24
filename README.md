@@ -1,12 +1,12 @@
-![CFGS DAM](https://img.shields.io/badge/CFGS-Desenvolupament%20d%27Aplicacions%20Multiplataforma%20%28DAM%29-green)
-![DI](https://img.shields.io/badge/assignatura-Disseny%20d%27Interf%C3%ADcies-yellow)
+![CFGS DAM](https://img.shields.io/badge/CFGS-Desenvolupament%20d%27Aplicacions%20Multiplataforma%20%28DAM%29-green?style=for-the-badge)
+![DI](https://img.shields.io/badge/assignatura-Disseny%20d%27Interf%C3%ADcies-yellow?style=for-the-badge)
 
 
 # 🐉 Dungeons & Dragons Character Editor (WPF)
 
-![.NET](https://img.shields.io/badge/.NET-8.0-purple)
-![WPF](https://img.shields.io/badge/Framework-WPF-blue)
-![Language](https://img.shields.io/badge/Language-C%23-green)
+![.NET](https://img.shields.io/badge/.NET-8.0-purple?style=for-the-badge)
+![WPF](https://img.shields.io/badge/Framework-WPF-blue?style=for-the-badge)
+![Language](https://img.shields.io/badge/Language-C%23-green?style=for-the-badge)
 
 Pràctica 1 de la asignatura de Disseny d'Interficies del CFGS de Desenvolupament d'Aplicacions Multiplataforma.
 
